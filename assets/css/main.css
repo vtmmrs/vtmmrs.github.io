@@ -1593,6 +1593,8 @@ input, select, textarea {
 		.image img {
 			display: block;
 			width: 100%;
+			height: 190px;
+			object-fit: cover;
 		}
 
 		.image.fit {
@@ -1618,6 +1620,8 @@ input, select, textarea {
 		.image.featured {
 			display: block;
 			width: 100%;
+			object-fit: cover;
+			height: 210px;
 			margin: 0 0 2em 0;
 		}
 
