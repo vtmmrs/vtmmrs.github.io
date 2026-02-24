@@ -1,491 +1,691 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivien Timmers – Frontend Engineer</title>
+  <meta name="description" content="Frontend Engineer with 4+ years of experience building responsive web apps and e-commerce platforms. Based in Melbourne, Australia." />
+  <meta property="og:title" content="Vivien Timmers – Frontend Engineer" />
+  <meta property="og:description" content="Design-driven developer. React · JavaScript · Tailwind · Shopify · Webflow." />
+  <meta property="og:type" content="website" />
 
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
+
+  <!-- Tailwind CSS (Play CDN – supports all v3 utilities incl. arbitrary values) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Vivien Timmers - Full-Stack Developer</title>
-</head>
-<body>
-
-  <header class="text-gray-600 body-font shadow">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <!-- <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <svg xmlns="" fill="none" stroke="currentColor" stroke-linecap="round"
-          stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-gray-800 rounded-full"
-          viewBox="0 0 24 24">
-          <!- <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path> -->
-        </svg>
-        <span class="ml-3 text-xl font-light">Vivien Timmers</span>
-      </a>
-      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-        <a class="mr-5 hover:text-gray-900" href="#about">About</a>
-        <a class="mr-5 hover:text-gray-900" href="#skills">Skills</a>
-        <a class="mr-5 hover:text-gray-900" href="#experience">Experience</a>
-        <a class="mr-5 hover:text-gray-900" href="#projects">Projects</a>
-        <a class="mr-5 hover:text-gray-900" href="mailto:vivientimmers@gmail.com">Contact</a>
-      </nav>
-      <!-- <div class="flex items-center flex-grow flex-shrink-0">
-        <ul class="text-blue-900 text-medium">
-          <li>
-            <a href=""><span class="fab fa-github-square fa-2x"></span></a>
-          </li>
-        </ul>
-      </div> -->
-      <button class="inline-flex items-center shadow bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" href="mailto:vivientimmers@gmail.com">Get in touch
-        <!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7"></path>
-        </svg> -->
-      </button>
-    </div>
-  </header>
-
-  <section>
-    <div class="relative bg-white overflow-hidden">
-      <div class="max-w-7xl mx-auto">
-        <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-          <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-            fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
-
-          <!-- About -->
-          <main class="pt-4 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div class="sm:text-center lg:text-left" id="about" >
-              <h1 class="text-4xl tracking-tight font-extrabold text-gray-800 sm:text-5xl md:text-6xl">
-                <span class="block xl:inline">Hi! My name is</span>
-                <span class="block text-blue-800 xl:inline">Vivien.</span>
-              </h1>
-              <h4 class="text-lg tracking-tight font-bold text-gray-400 uppercase font-mono sm:text-lg md:text-xl" >A Full-Stack Developer & Content Savvy</h4>
-              <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                I'm a passionate, creative, ambitious and adaptable Developer from Belgium. Fluent in French and English. I have experience in the Graphic Design, Music, Fitness and hospitality industries, I am always
-                ready for a challenge. My diverse work experience overseas and in Australia has helped me gain a unique set of skills
-                which I am looking to apply in a team-oriented environment where I can also grow, contribute and share.
-              </p>
-              <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div class="rounded-md shadow">
-                  <a href="#skills" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-                    Get started
-                  </a>
-                </div>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <img class="h-56 w-full object-cover bg-gray-300 rounded-lg sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="images/Vivien-SD-2019.jpg"
-          alt=""/>
-      </div>
-    </div>
-  </section>
-
-<!-- SKILLS -->
-<section id="main" class="wrapper style2">
-  <div class="">
-    <!-- Image -->
-    <a class="image featured">
-      <img src="images/BannerViSD.jpg" alt="">
-    </a>
-    <!-- Features -->
-  <section class="text-gray-600 body-font">
-    <div class=" px-5 py-16 mx-auto flex flex-wrap" id="skills">
-      <div class="flex flex-wrap w-full mb-8 flex-col items-center text-center">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Skills</h1>
-        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Knowledge &amp; soft skills.</p>
-      </div>
-      <div class="flex flex-wrap w-full justify-center">
-        <div class="justify-items-center lg:w-2/5 md:w-1/2 md:py-6">
-          <div class="flex relative pb-12">
-            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-              <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-            </div>
-            <div
-              class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 inline-flex items-center justify-center text-white relative z-10">
-              <div class="fas fa-funnel-dollar"></div>
-            </div>
-            <div class="flex-grow pl-4">
-              <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Marketing Background
-              </h2>
-              <p class="leading-relaxed">Diploma in Marketing &amp; Communication and Social Media Marketing background. I
-                can bring both point
-                of views to a project.</p>
-              </div>
-            </div>
-            <div class="flex relative pb-12">
-              <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-                <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-              </div>
-              <div
-              class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 inline-flex items-center justify-center text-white relative z-10">
-                <div class="fas fa-comments"></div>
-            </div>
-            <div class="flex-grow pl-4">
-              <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Teamwork</h2>
-              <p class="leading-relaxed">I'm looking to apply my skills in a team-oriented environment where I can also
-                grow, contribute and
-                share.</p>
-            </div>
-          </div>
-          <div class="flex relative pb-12">
-            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-              <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-            </div>
-            <div
-              class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 inline-flex items-center justify-center text-white relative z-10">
-                <div class="fas fa-swatchbook"></div>
-            </div>
-            <div class="flex-grow pl-4">
-              <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Creative</h2>
-              <p class="leading-relaxed">As a graphic designer, a photographer and a videographer enthusiast, I'm
-                comfortable with Adobe
-                Creative Suite as my main tools to create digital and print artworks.</p>
-            </div>
-          </div>
-          <div class="flex relative pb-12">
-            <div class="h-full w-10 absolute inset-0 flex items-center justify-center">
-              <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-            </div>
-            <div
-              class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 inline-flex items-center justify-center text-white relative z-10">
-                <div class="fas fa-lightbulb"></div>
-            </div>
-            <div class="flex-grow pl-4">
-              <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Problem Solver</h2>
-              <p class="leading-relaxed">Passionate and creative, I like to solve problem and sharing my process.</p>
-            </div>
-          </div>
-          <div class="flex relative">
-            <div
-              class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-700 inline-flex items-center justify-center text-white relative z-10">
-                <div class="fas fa-check-circle"></div>
-            </div>
-            <div class="flex-grow pl-4">
-              <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">Willing to Learn</h2>
-              <p class="leading-relaxed">Wether in team or working on my own, I like looking to improve my current skills.
-              </p>
-            </div>
-          </div>
-        </div>
-        <!-- <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12"
-          src="" alt="step"> -->
-      </div>
-    </div>
-  </section>
-</section>
-
-
-
-<!-- EXPERIENCE -->
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-16 mx-auto" id="experience">
-    <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Experience</h1>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Professional career summary.</p>
-    </div>
-    <div class="flex flex-wrap -m-4">
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative z-10">
-            <div class="fas fa-bezier-curve fa-2x"></div>
-          </div>
-          <h2 class="text-md text-gray-900 font-medium title-font mb-2">Digital Designer & Front End Developer</h2>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Mesh Ai</h2>
-          <p class="leading-relaxed text-base text-gray-400">Oct 2020 - Feb 2021</p>
-          <p class="leading-relaxed text-base">Digital designs, Web Design, Chatbots conversations builds, Front-End Web Development, Email Designs.</p>
-          <ul>
-            <li>
-              <p>Built web pages or full layouts and split into sections to then build from scratch or using CMS.</p>
-            </li>
-            <li>
-              <p>Contributed and worked on projects for brands like:</p>
-            </li>
-          </ul>
-          <br>
-          <hr>
-          <div class="mt-3 font-bold italic text-gray-400">
-            <p>
-              <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700" href="https://supremeleader.com.au/">SupremeLeader</a>
-              <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700" href="https://concepteight.com.au">Concept Eight</a>
-              <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700" href="https://makeradvisory.com">Maker Advisory</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="xl:w-1/3 md:w-1/2 p-4">
-        <div class="border border-gray-200 p-6 rounded-lg">
-          <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative z-10">
-            <div class="fas fa-film fa-2x"></div>
-          </div>
-          <h2 class="text-md text-gray-900 font-medium title-font mb-2">Video Producer & Editor</h2>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">DATTA
-            <br><span class=" text-sm text-gray-400">(Design & Technology Teachers Association)</span></h2>
-          <p class="leading-relaxed text-base text-gray-400">Jul 2021 - Nov 2021</p>
-          <p class="leading-relaxed text-base">Promotional video showcasing the design program for Year 12 students looking at making Industrial Design a career.
-            Technically, the project was a mix of digital content as well as shooting video, recording audio,
-            creating slides for a PDF presentation and the entire editing proces</p>
-            <br>
-            <hr>
-            <div class="mt-3 font-bold italic text-gray-400">
-              <p>
-                <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700"
-                href="https://www.dropbox.com/s/km33nu5jh0a4kej/DATTA%20Video%20sub-1080p.mov?dl=0" target="_blank">DATTA Promo Video</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="xl:w-1/3 md:w-1/2 p-4">
-          <div class="border border-gray-200 p-6 rounded-lg">
-            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative z-10">
-              <div class="fas fa-layer-group fa-2x"></div>
-            </div>
-            <h2 class="text-md text-gray-900 font-medium title-font mb-2">Web Designer & Web Developer</h2>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Freelance</h2>
-            <p class="leading-relaxed text-base text-gray-400">Jun 2020 - Oct 2020</p>
-            <p class="leading-relaxed text-base">I built websites for a yoga studio wanting to expand their services
-              towards an online platform for their customers. Having videos and the
-              possibility to book online classes was something beneficial and handy
-              considering the restrictions at the time.</p>
-              <br>
-
-            </div>
-          </div>
-          <div class="xl:w-1/3 md:w-1/2 p-4">
-            <div class="border border-gray-200 p-6 rounded-lg">
-                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative z-10">
-                  <div class="fas fa-cocktail fa-2x"></div>
-                </div>
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Hospitality</h2>
-              <p class="leading-relaxed text-base text-gray-400">Jul 2016 - March 2020</p>
-              <p class="leading-relaxed text-base">I worked in a wide range of venues and at dierent positions, which
-                taught me a lot of skills that I'm able to apply in other industries.
-                – Adaptability
-                – Customer Service
-                – Following instructions
-                – Reaching targets
-                – Teamwork & collaborative mindset
-                – Multitasking
-
-                Position & roles:
-                <br>#Bartender #Kitchen Hand #Cocktail Bartender #Mixologist #Supervisor.</p>
-                <hr>
-                <div class="mt-3 font-bold italic text-gray-400">
-                  <p>
-                    <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700"
-                    href="https://www.instagram.com/p/B6U_WAGADIO/?utm_source=ig_web_copy_link" target="_blank">Fury Road Cocktail</a>
-                  </p>
-                </div>
-
-              </div>
-            </div>
-            <div class="xl:w-1/3 md:w-1/2 p-4">
-              <div class="border border-gray-200 p-6 rounded-lg">
-                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative
-                z-10">
-                <div class="fas fa-hiking fa-2x"></div>
-              </div>
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Travels</h2>
-              <p class="leading-relaxed text-base text-gray-400">Sep 2013 - Dec 2015</p>
-              <p class="leading-relaxed text-base">I travelled around Australia, New-Zealand, South East Asia and lived for
-                almost a year in Thailand.</p>
-                <p>I have also undertaken a Divemaster course which allowed me to work as under water photographer and videographer for a while.</p>
-                <br>
-                <hr>
-                <div class="mt-3 font-bold italic text-gray-400">
-                  <p>
-                    <a class="border-2 p-1 hover:border-gray-500 rounded-lg hover:text-gray-700"
-                    href="https://www.youtube.com/watch?v=0whcG61T6MM" target="_blank">Underwater video Showreel</a>
-                  </p>
-                </div>
-              </div>
-            </div>
-              <div class="xl:w-1/3 md:w-1/2 p-4">
-                <div class="border border-gray-200 p-6 rounded-lg">
-                <div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-400 inline-flex items-center justify-center text-white relative z-10">
-                  <div class="fas fa-water fa-2x"></div>
-                </div>
-                  <h2 class="text-md text-gray-900 font-medium title-font mb-2">Underwater Photographer & Videographer</h2>
-                  <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Master Divers</h2>
-                  <p class="leading-relaxed text-base text-gray-400">Dec 2014 - Aug 2015</p>
-          <p class="leading-relaxed text-base">Aer my Divemaster course, I decided to give commercial photography
-          and videography a go and shoot for dive resorts while I was on Koh
-          Tao Island in Thailand.
-          <br>
-          During that time, I mainly worked as a freelance, taking photos and
-          videos of customers during their scuba diving lessons, which were then
-          sold at the end of the day.
-          <br>
-          This job taught me to build a quick workflow to deliver the work
-          quickly to customers. Being able to sell the service to both the dive
-          resorts and customers and to be organised.</p>
-        </div>
-      </div>
-    </div>
-    <!-- <button class="flex mx-auto mt-16 text-white bg-blue-800 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="text-gray-600 body-font">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col" id="projects">
-    <div class="flex flex-wrap w-full mb-12 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Past Projects</h1>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Personal &amp; Professional Projects.</p>
-    </div>
-    <img class="border border-gray-400 lg:w-2/5 md:w-3/5 w-4/5 mb-8 object-cover object-center rounded-lg" alt="hero"
-    src="images/OfficeConnect-Thumb.png">
-    <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Office Connect</h1>
-      <p class="mb-8 leading-relaxed">Final project made during the last two weeks of Le Wagon bootcamp. The aim of Office Connect is to create a solution for people wanting to book a working space while offices are limited in capacity due to the covid-19 restrictions. You are able to see the venues and spaces available and as an owner, you are able to create your own space for people to book.</p>
-      <div class="flex justify-center">
-        <a href="https://github.com/Sally868/Office_Connect.git" target="_blank">
-          <button class="inline-flex text-white bg-blue-700 border-0 py-2 px-6 shadow focus:outline-none hover:bg-blue-500 rounded text-lg">GitHub Repo</button>
-        </a>
-        <a href="http://office-connect.herokuapp.com/" target="_blank">
-          <button class="ml-4 inline-flex text-gray-700 bg-gray-200 shadow border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 hover:text-white rounded text-lg">Website</button>
-      </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="text-gray-600 body-font">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-    <img class="border border-gray-400 lg:w-2/5 md:w-3/5 w-4/5 mb-8 object-cover object-center rounded-lg" alt="hero"
-    src="images/WeWheelBikes-Thumb.png">
-    <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">We Wheel Bikes</h1>
-      <p class="mb-8 leading-relaxed">First full project made with Ruby On Rails during Le Wagon bootcamp. The aim of We Wheel Bikes is to make it easy for people wanting to hire a bicyles in the location of their choice. Think of 'GoGet' but with bikes.</p>
-      <div class="flex justify-center">
-        <a href="https://github.com/SwethaPShivakumar/We_Wheel_Bikes.git" target="_blank">
-          <button class="inline-flex text-white bg-blue-700 border-0 py-2 px-6 shadow focus:outline-none hover:bg-blue-500 rounded text-lg">GitHub Repo</button>
-        </a>
-        <a href="http://we-wheel-bikes.herokuapp.com/" target="_blank">
-          <button class="ml-4 inline-flex text-gray-700 bg-gray-200 shadow border-0 py-2 px-6 focus:outline-none hover:bg-gray-600 hover:text-white rounded text-lg">Website</button>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials -->
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
-    <div class="flex flex-wrap justify-center -m-4">
-      <div class="p-4 md:w-2/3 w-full">
-        <div class="h-full bg-gray-900 text-white bg-opacity-40 p-8 rounded-md shadow">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-white mb-4"
-            viewBox="0 0 975.036 975.036">
-            <path
-              d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
-            </path>
-          </svg>
-          <p class="leading-relaxed mb-6">Vivien's incredible eye for design coupled with his technical skillset consistently inspired those who worked with him.
-          Driven, communicative, and calm under pressure are all qualities he demonstrated throughout his Bootcamp. Any
-          organisation would be lucky to have Vivien on their team.</p>
-          <a class="inline-flex items-center">
-            <img alt="testimonial" src="https://ca.slack-edge.com/T02NE0241-U01BC8QPK6H-7392ab0f6979-512"
-              class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
-            <span class="flex-grow flex flex-col pl-4">
-              <span class="title-font font-medium text-white">Julian Harrington</span>
-              <span class="text-gray-600 text-sm">PROJECT MANAGER at Le Wagon</span>
-            </span>
-          </a>
-        </div>
-      </div>
-      <!-- <div class="p-4 md:w-1/2 w-full">
-        <div class="h-full bg-gray-100 p-8 rounded">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4"
-            viewBox="0 0 975.036 975.036">
-            <path
-              d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z">
-            </path>
-          </svg>
-          <p class="leading-relaxed mb-6">Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra
-            before they sold out fixie 90's microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard
-            pabst authentic iceland.</p>
-          <a class="inline-flex items-center">
-            <img alt="testimonial" src="https://dummyimage.com/107x107"
-              class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
-            <span class="flex-grow flex flex-col pl-4">
-              <span class="title-font font-medium text-gray-900">Alper Kamu</span>
-              <span class="text-gray-500 text-sm">DESIGNER</span>
-            </span>
-          </a>
-        </div>
-      </div> -->
-    </div>
-  </div>
-</section>
-
-<!-- Get in touch -->
-<section class="bg-gray-700 text-white">
-  <div class="container mx-auto flex px-5 py-8 items-center justify-center flex-col">
-    <div class="container text-center lg:w-2/3 w-full">
-      <h2 class="py-4 px-8 title-font sm:text-4xl text-3xl mb-4 font-medium">Did you like what you see? Get in touch!</h2>
-      <p class="leading-relaxed">
-        Whether you liked what you see, you have questions or you're looking for someone to hire, please get in touch via email.
-        I look forward to hearing from you!
-        <br>- Vivien
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-gray-600 body-font">
-  <div class="bg-gray-100">
-    <div class="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <span class="ml-3 text-xl">Vivien Timmers</span>
-      </a>
-      <p class="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">© 2021 —
-        <a href="https://instagram.com/vtmmrs" rel="noopener noreferrer" class="text-gray-600 ml-1"
-          target="_blank">@vtmmrs</a>
-      </p>
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-        <a class="text-gray-500 fab fa-github fa-lg p-2 hover:text-blue-800" href="https://github.com/vtmmrs"></a>
-        <a class="text-gray-500 fab fa-twitter fa-lg p-2 hover:text-blue-800" href ="https://twitter.com/vtmmrs"></a>
-        <a class="text-gray-500 fab fa-instagram fa-lg p-2 hover:text-blue-800" href ="https://instagram.com/vtmmrs"></a>
-        <a class="text-gray-500 fab fa-linkedin fa-lg p-2 hover:text-blue-800" href="https://www.linkedin.com/in/vtmmrs/"></a>
-      </span>
-    </div>
-  </div>
-</footer>
-
   <script>
-    import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
-    import { MenuIcon, XIcon } from '@heroicons/vue/outline'
-
-    const navigation = [
-      { name: 'Product', href: '#' },
-      { name: 'Features', href: '#' },
-      { name: 'Marketplace', href: '#' },
-      { name: 'Company', href: '#' },
-    ]
-
-    export default {
-      components: {
-        Popover,
-        PopoverButton,
-        PopoverPanel,
-        MenuIcon,
-        XIcon,
-      },
-      setup() {
-        return {
-          navigation,
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
         }
-      },
+      }
     }
   </script>
 
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- React 18 + ReactDOM (UMD) -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel Standalone (JSX transpilation in browser) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+    /* Cursor blink animation */
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+    /* Fade-in animation used by AnimatedSection */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(2rem); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
+    .fade-up-hidden { opacity: 0; transform: translateY(2rem); }
+  </style>
+</head>
+<body class="bg-slate-900 text-white">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useCallback } = React;
+
+    // ─── DATA ─────────────────────────────────────────────────────────────────
+    const ROLES = [
+      "Frontend Engineer",
+      "React Developer",
+      "Web Developer",
+      "Digital Designer",
+      "Content Creator",
+      "E-commerce Specialist",
+    ];
+
+    const SKILLS = {
+      frontend: ["HTML", "CSS / SCSS", "JavaScript (ES6+)", "React", "jQuery", "Tailwind CSS", "Bootstrap"],
+      toolsAndCMS: ["WordPress", "Webflow", "Shopify", "Squarespace", "Wix", "cPanel", "REST APIs", "Ruby on Rails"],
+      designAndTools: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "Adobe XD", "Premiere Pro", "GitHub", "Jira", "Notion"],
+    };
+
+    const EXPERIENCE = [
+      {
+        icon: "🛹",
+        title: "E-commerce & Digital Assistant",
+        company: "Twelve Board Store — Melbourne, Richmond",
+        period: "2024 – Present",
+        description: "Managing and updating e-commerce product listings, inventory and website content. Optimising product pages for usability, SEO and conversion. Maintaining CMS and backend systems supporting online retail operations.",
+        tags: ["E-commerce", "Shopify", "SEO", "Content Creation", "CMS"],
+      },
+      {
+        icon: "🎓",
+        title: "Web Developer & Digital Designer",
+        company: "RMIT University · University of Melbourne",
+        period: "Jul 2023 – Present",
+        description: "Building and maintaining responsive web pages showcasing graduate student work. Creating digital assets including banners, animations and UI components. Integrating external portfolios and content platforms for university faculties.",
+        tags: ["React", "HTML", "CSS", "JavaScript", "UI Design"],
+      },
+      {
+        icon: "🎵",
+        title: "Web Developer",
+        company: "Bounce Audio — Melbourne",
+        period: "Feb 2022 – Present",
+        description: "Maintaining and improving the e-commerce platform and product database. Implementing API integrations and site functionality updates. Performing UI/UX improvements and performance optimisations on production systems.",
+        tags: ["JavaScript", "REST APIs", "UI/UX", "E-commerce", "Performance"],
+      },
+      {
+        icon: "🌍",
+        title: "Full Stack Web Developer (Remote)",
+        company: "Cogini — France",
+        period: "Mar 2022 – Aug 2022",
+        description: "Developed frontend and backend features for an educational SaaS platform connecting schools, parents and communities. Collaborated remotely with an international development team across timezones.",
+        tags: ["Ruby on Rails", "JavaScript", "HTML", "CSS", "Remote"],
+      },
+      {
+        icon: "🤖",
+        title: "Digital Designer & Frontend Developer",
+        company: "Mesh AI — Melbourne",
+        period: "Oct 2020 – Feb 2021",
+        description: "Designed and developed web pages and chatbot interfaces from wireframes and CMS templates. Contributed to major brand projects including MINI/BMW, Supreme Leader and Bell Property.",
+        tags: ["Frontend", "UI Design", "CMS", "Chatbot UI", "Brand Work"],
+      },
+      {
+        icon: "💼",
+        title: "Freelance Web Designer & Developer",
+        company: "Independent — Australia",
+        period: "2020",
+        description: "Designed and built responsive websites for small businesses. Implemented booking systems and video-based content platforms with a focus on UX, accessibility and performance.",
+        tags: ["WordPress", "Webflow", "Responsive Design", "UX", "Freelance"],
+      },
+      {
+        icon: "📸",
+        title: "Photographer & Videographer",
+        company: "Freelance — Australia",
+        period: "Feb 2020 – Present",
+        description: "Producing digital content for businesses and creative brands. Applying visual storytelling principles and strong project management skills to every production.",
+        tags: ["Photography", "Adobe Premiere", "Photoshop", "Content Creation"],
+      },
+    ];
+
+    const EDUCATION = [
+      { school: "Le Wagon", course: "Full Stack Web Development Bootcamp", year: "2021" },
+      { school: "Codecademy", course: "Web Development Career Path", year: "2020" },
+      { school: "Australian Pacific College", course: "Diplomas: Marketing & Social Media", year: "2017–2019" },
+      { school: "St-Luc Liège, Belgium", course: "High School Degree in Graphic Design", year: "2004–2007" },
+    ];
+
+    const PROJECTS = [
+      {
+        emoji: "🏢",
+        name: "Office Connect",
+        subtitle: "Le Wagon Final Project · 2021",
+        description: "Full-stack platform for booking co-working spaces during COVID-19 office capacity restrictions. Users browse and book available spaces; venue owners list and manage their spaces with an integrated map and booking system.",
+        tags: ["Ruby on Rails", "JavaScript", "PostgreSQL", "Mapbox", "Heroku"],
+        github: "https://github.com/vtmmrs",
+        website: "https://vtmmrs.github.io",
+        gradient: "from-indigo-900 via-indigo-800 to-purple-900",
+      },
+    ];
+
+    const TESTIMONIALS = [
+      {
+        quote: "Vivien's incredible eye for design coupled with his technical skillset consistently inspired those who worked with him. Driven, communicative, and calm under pressure are all qualities he demonstrated throughout his Bootcamp. Any organisation would be lucky to have Vivien on their team.",
+        name: "Julian Harrington",
+        role: "Project Manager at Le Wagon",
+        initials: "JH",
+      },
+    ];
+
+    // ─── HOOKS ────────────────────────────────────────────────────────────────
+    function useTypewriter(words, typingSpeed = 75, deletingSpeed = 38, pauseMs = 2200) {
+      const [text, setText] = useState("");
+      const [wordIndex, setWordIndex] = useState(0);
+      const [phase, setPhase] = useState("typing");
+
+      useEffect(() => {
+        const word = words[wordIndex];
+        let t;
+        if (phase === "typing") {
+          if (text.length < word.length) {
+            t = setTimeout(() => setText(word.slice(0, text.length + 1)), typingSpeed);
+          } else {
+            t = setTimeout(() => setPhase("deleting"), pauseMs);
+          }
+        } else {
+          if (text.length > 0) {
+            t = setTimeout(() => setText(text.slice(0, -1)), deletingSpeed);
+          } else {
+            setWordIndex(i => (i + 1) % words.length);
+            setPhase("typing");
+          }
+        }
+        return () => clearTimeout(t);
+      }, [text, phase, wordIndex]);
+
+      return text;
+    }
+
+    function useVisible(ref, threshold = 0.12) {
+      const [visible, setVisible] = useState(false);
+      useEffect(() => {
+        if (!ref.current) return;
+        const obs = new IntersectionObserver(
+          ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+          { threshold }
+        );
+        obs.observe(ref.current);
+        return () => obs.disconnect();
+      }, []);
+      return visible;
+    }
+
+    // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────
+    function AnimatedSection({ children, delay = 0, className = "" }) {
+      const ref = useRef(null);
+      const visible = useVisible(ref);
+      return (
+        <div
+          ref={ref}
+          className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} ${className}`}
+          style={{ transitionDelay: `${delay}ms` }}
+        >
+          {children}
+        </div>
+      );
+    }
+
+    function Tag({ label, variant = "indigo" }) {
+      const styles = {
+        indigo: "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20",
+        purple: "bg-purple-500/10 text-purple-400 border border-purple-500/20",
+        teal:   "bg-teal-500/10 text-teal-400 border border-teal-500/20",
+      };
+      return (
+        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${styles[variant]}`}>
+          {label}
+        </span>
+      );
+    }
+
+    function SkillCard({ icon, label, skills, variant, isDark }) {
+      const cardBg = isDark ? "bg-slate-800" : "bg-white";
+      const border = isDark ? "border-slate-700" : "border-gray-200";
+      return (
+        <div className={`${cardBg} rounded-2xl p-6 border ${border} hover:border-indigo-500 transition-all duration-300 h-full`}>
+          <div className="text-4xl mb-3">{icon}</div>
+          <h3 className="text-base font-bold mb-4">{label}</h3>
+          <div className="flex flex-wrap gap-2">
+            {skills.map(s => <Tag key={s} label={s} variant={variant} />)}
+          </div>
+        </div>
+      );
+    }
+
+    // ─── MAIN PORTFOLIO ───────────────────────────────────────────────────────
+    function Portfolio() {
+      const [isDark, setIsDark] = useState(true);
+      const [scrollY, setScrollY] = useState(0);
+      const [scrollPct, setScrollPct] = useState(0);
+      const [activeSection, setActiveSection] = useState("home");
+      const [mobileOpen, setMobileOpen] = useState(false);
+      const typewriterText = useTypewriter(ROLES);
+
+      useEffect(() => {
+        const onScroll = () => {
+          setScrollY(window.scrollY);
+          const total = document.documentElement.scrollHeight - window.innerHeight;
+          setScrollPct(total > 0 ? (window.scrollY / total) * 100 : 0);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+      }, []);
+
+      useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+        const obs = new IntersectionObserver(
+          entries => entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); }),
+          { rootMargin: "-35% 0px -60% 0px" }
+        );
+        sections.forEach(s => obs.observe(s));
+        return () => obs.disconnect();
+      }, []);
+
+      const scrollTo = id => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        setMobileOpen(false);
+      };
+
+      const t = {
+        bg:    isDark ? "bg-slate-900"    : "bg-gray-50",
+        bg2:   isDark ? "bg-slate-800"    : "bg-white",
+        bg3:   isDark ? "bg-slate-800/50" : "bg-gray-100",
+        text:  isDark ? "text-white"      : "text-slate-900",
+        muted: isDark ? "text-slate-400"  : "text-slate-500",
+        bdr:   isDark ? "border-slate-700": "border-gray-200",
+        nav:   isDark ? "bg-slate-900/90" : "bg-white/90",
+      };
+
+      const NAV = ["home", "skills", "experience", "projects", "contact"];
+
+      return (
+        <div className={`${t.bg} ${t.text} min-h-screen font-sans transition-colors duration-300`}>
+
+          {/* Scroll progress bar */}
+          <div
+            className="fixed top-0 left-0 h-[3px] z-50 transition-all duration-100"
+            style={{ width: `${scrollPct}%`, background: "linear-gradient(90deg,#6366f1,#a855f7,#ec4899)" }}
+          />
+
+          {/* ── NAVBAR ──────────────────────────────────────────── */}
+          <nav className={`fixed top-0 left-0 right-0 z-40 ${t.nav} backdrop-blur-lg border-b ${t.bdr} transition-all`}>
+            <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+              <button
+                onClick={() => scrollTo("home")}
+                className="font-extrabold text-xl tracking-tight"
+                style={{ background: "linear-gradient(90deg,#818cf8,#c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+              >
+                VT
+              </button>
+
+              {/* Desktop links */}
+              <div className="hidden md:flex items-center gap-8">
+                {NAV.map(s => (
+                  <button
+                    key={s}
+                    onClick={() => scrollTo(s)}
+                    className={`capitalize text-sm font-medium transition-colors ${activeSection === s ? "text-indigo-400" : `${t.muted} hover:text-indigo-400`}`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setIsDark(!isDark)}
+                  className={`w-9 h-9 rounded-full ${t.bg2} border ${t.bdr} flex items-center justify-center hover:border-indigo-500 transition-all text-base`}
+                >
+                  {isDark ? "☀️" : "🌙"}
+                </button>
+                <button
+                  onClick={() => scrollTo("contact")}
+                  className="hidden md:inline-flex bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+                >
+                  Hire Me
+                </button>
+                {/* Hamburger */}
+                <button
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  className={`md:hidden w-9 h-9 rounded-full ${t.bg2} border ${t.bdr} flex flex-col items-center justify-center gap-[5px]`}
+                >
+                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+                </button>
+              </div>
+            </div>
+            {mobileOpen && (
+              <div className={`md:hidden ${t.bg2} border-t ${t.bdr} px-6 py-4 flex flex-col gap-4`}>
+                {NAV.map(s => (
+                  <button key={s} onClick={() => scrollTo(s)} className={`capitalize text-left text-sm font-medium ${activeSection === s ? "text-indigo-400" : t.muted}`}>
+                    {s}
+                  </button>
+                ))}
+                <button onClick={() => scrollTo("contact")} className="bg-indigo-600 text-white py-2 rounded-full text-sm font-semibold">
+                  Hire Me
+                </button>
+              </div>
+            )}
+          </nav>
+
+          {/* ── HERO ────────────────────────────────────────────── */}
+          <section id="home" className="min-h-screen flex items-center pt-20 pb-16">
+            <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className={`inline-block text-sm font-mono ${t.muted} mb-5 border ${t.bdr} px-4 py-1.5 rounded-full`}>
+                  👋 &nbsp;Bonjour! I'm
+                </span>
+
+                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-4">
+                  Vivien
+                  <br />
+                  <span style={{ background: "linear-gradient(90deg,#818cf8,#c084fc,#f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                    Timmers
+                  </span>
+                </h1>
+
+                {/* Typewriter */}
+                <div className="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2" style={{ minHeight: "2.25rem" }}>
+                  <span className={t.muted}>A&nbsp;</span>
+                  <span className="text-indigo-400">{typewriterText}</span>
+                  <span className="text-indigo-400 cursor-blink">|</span>
+                </div>
+
+                <p className={`${t.muted} text-base md:text-lg leading-relaxed mb-8 max-w-lg`}>
+                  Frontend Engineer with 4+ years of experience building responsive web apps and e-commerce platforms.
+                  Based in 🇦🇺 Melbourne. Fluent in 🇫🇷 French &amp; 🇬🇧 English. Design-driven developer with a passion for clean code and great UX.
+                </p>
+
+                <div className="flex flex-wrap gap-3 mb-10">
+                  <button
+                    onClick={() => scrollTo("projects")}
+                    className="bg-indigo-600 hover:bg-indigo-500 text-white px-7 py-3 rounded-full font-semibold transition-all hover:scale-105 shadow-lg"
+                    style={{ boxShadow: "0 8px 25px rgba(99,102,241,0.3)" }}
+                  >
+                    View My Work →
+                  </button>
+                  <button
+                    onClick={() => scrollTo("contact")}
+                    className={`${t.bg2} border ${t.bdr} ${t.text} px-7 py-3 rounded-full font-semibold transition-all hover:border-indigo-500`}
+                  >
+                    Get In Touch
+                  </button>
+                </div>
+
+                {/* Stats */}
+                <div className={`flex flex-wrap gap-8 border-t ${t.bdr} pt-8`}>
+                  {[["4+", "Years in Web Dev"], ["7+", "Roles & Projects"], ["2", "Languages"]].map(([n, l]) => (
+                    <div key={l}>
+                      <div className="text-2xl font-bold text-indigo-400">{n}</div>
+                      <div className={`text-xs ${t.muted}`}>{l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Photo */}
+              <div className="flex justify-center md:justify-end">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full opacity-20 scale-110" style={{ background: "radial-gradient(circle, #6366f1, #a855f7)", filter: "blur(40px)" }} />
+                  <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-indigo-500" style={{ boxShadow: "0 25px 60px rgba(99,102,241,0.35)" }}>
+                    <img
+                      src="https://vtmmrs.github.io/images/vivien.jpg"
+                      alt="Vivien Timmers"
+                      className="w-full h-full object-cover"
+                      onError={e => { e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;background:#1e293b">👨‍💻</div>'; }}
+                    />
+                  </div>
+                  <div className="absolute -bottom-3 -left-8 bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
+                    🚀 Frontend Engineer
+                  </div>
+                  <div className="absolute -top-3 -right-8 bg-purple-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
+                    🎓 Le Wagon Alumni
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── SKILLS ──────────────────────────────────────────── */}
+          <section id="skills" className={`py-24 ${t.bg3}`}>
+            <div className="max-w-6xl mx-auto px-6">
+              <AnimatedSection>
+                <div className="text-center mb-14">
+                  <h2 className="text-4xl font-bold mb-3">Skills &amp; Tech Stack</h2>
+                  <p className={t.muted}>4+ years of hands-on frontend and e-commerce development</p>
+                </div>
+              </AnimatedSection>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                <AnimatedSection delay={0}>
+                  <SkillCard icon="💻" label="Frontend Development" skills={SKILLS.frontend} variant="indigo" isDark={isDark} />
+                </AnimatedSection>
+                <AnimatedSection delay={100}>
+                  <SkillCard icon="🛒" label="CMS, E-commerce &amp; APIs" skills={SKILLS.toolsAndCMS} variant="purple" isDark={isDark} />
+                </AnimatedSection>
+                <AnimatedSection delay={200}>
+                  <SkillCard icon="🎨" label="Design &amp; Workflow Tools" skills={SKILLS.designAndTools} variant="teal" isDark={isDark} />
+                </AnimatedSection>
+              </div>
+
+              {/* Info strip */}
+              <AnimatedSection delay={300}>
+                <div className={`mt-6 ${t.bg2} rounded-2xl p-6 border ${t.bdr} flex flex-wrap items-center gap-6`}>
+                  {[
+                    ["🌐", "Languages", "French (Native) · English (Bilingual)"],
+                    ["🤝", "Work Style", "Remote · Agile · Independent · Collaborative"],
+                    ["📍", "Location", "Melbourne VIC · Available Remote AUS/EU"],
+                  ].map(([icon, label, value]) => (
+                    <div key={label} className="flex items-center gap-3">
+                      <span className="text-2xl">{icon}</span>
+                      <div>
+                        <div className="font-bold text-sm">{label}</div>
+                        <div className={`text-sm ${t.muted}`}>{value}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+            </div>
+          </section>
+
+          {/* ── EXPERIENCE ──────────────────────────────────────── */}
+          <section id="experience" className="py-24">
+            <div className="max-w-4xl mx-auto px-6">
+              <AnimatedSection>
+                <div className="text-center mb-14">
+                  <h2 className="text-4xl font-bold mb-3">Experience</h2>
+                  <p className={t.muted}>A track record across startups, universities, e-commerce, and freelance</p>
+                </div>
+              </AnimatedSection>
+
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute left-6 md:left-8 top-4 bottom-4 w-px opacity-30" style={{ background: "linear-gradient(to bottom, #6366f1, #a855f7, transparent)" }} />
+
+                <div className="space-y-7">
+                  {EXPERIENCE.map((exp, i) => (
+                    <AnimatedSection key={i} delay={i * 60}>
+                      <div className="relative flex gap-5 md:gap-6">
+                        <div
+                          className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-xl md:text-2xl shadow-lg z-10 mt-1"
+                          style={{ background: "linear-gradient(135deg, #4f46e5, #7c3aed)" }}
+                        >
+                          {exp.icon}
+                        </div>
+                        <div className={`flex-1 ${t.bg2} rounded-2xl p-5 border ${t.bdr} hover:border-indigo-500 transition-all duration-300 group`}>
+                          <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                            <h3 className="font-bold text-sm md:text-base group-hover:text-indigo-400 transition-colors leading-snug">
+                              {exp.title}
+                            </h3>
+                            <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 whitespace-nowrap">
+                              {exp.period}
+                            </span>
+                          </div>
+                          <div className="text-indigo-400 text-xs font-semibold mb-2 tracking-wide">{exp.company}</div>
+                          <p className={`${t.muted} text-sm leading-relaxed mb-3`}>{exp.description}</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.tags.map(tag => <Tag key={tag} label={tag} />)}
+                          </div>
+                        </div>
+                      </div>
+                    </AnimatedSection>
+                  ))}
+                </div>
+              </div>
+
+              {/* Education */}
+              <AnimatedSection delay={100}>
+                <div className={`mt-12 ${t.bg2} rounded-2xl p-6 border ${t.bdr}`}>
+                  <h3 className="font-bold text-base mb-4">🎓 Education</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {EDUCATION.map(({ school, course, year }) => (
+                      <div key={school} className={`p-3 rounded-xl ${t.bg3} border ${t.bdr}`}>
+                        <div className="font-semibold text-sm">{school}</div>
+                        <div className={`text-xs ${t.muted} mt-0.5`}>{course}</div>
+                        <div className="text-xs text-indigo-400 mt-1">{year}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+          </section>
+
+          {/* ── PROJECTS ────────────────────────────────────────── */}
+          <section id="projects" className={`py-24 ${t.bg3}`}>
+            <div className="max-w-6xl mx-auto px-6">
+              <AnimatedSection>
+                <div className="text-center mb-14">
+                  <h2 className="text-4xl font-bold mb-3">Past Projects</h2>
+                  <p className={t.muted}>Personal &amp; professional builds</p>
+                </div>
+              </AnimatedSection>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {PROJECTS.map((project, i) => (
+                  <AnimatedSection key={i}>
+                    <div className={`${t.bg2} rounded-2xl overflow-hidden border ${t.bdr} hover:border-indigo-500 transition-all duration-300 group flex flex-col`}>
+                      <div className={`h-52 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
+                        <span className="text-8xl group-hover:scale-110 transition-transform duration-500">{project.emoji}</span>
+                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
+                        <div className="absolute bottom-3 left-4 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20" style={{ background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }}>
+                          {project.subtitle}
+                        </div>
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{project.name}</h3>
+                        <p className={`${t.muted} text-sm leading-relaxed mb-4 flex-1`}>{project.description}</p>
+                        <div className="flex flex-wrap gap-2 mb-5">
+                          {project.tags.map(tag => <Tag key={tag} label={tag} />)}
+                        </div>
+                        <div className="flex gap-3">
+                          <a href={project.github} target="_blank" rel="noreferrer"
+                            className="flex-1 text-center py-2.5 rounded-full border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 text-sm font-semibold transition-all">
+                            GitHub Repo
+                          </a>
+                          <a href={project.website} target="_blank" rel="noreferrer"
+                            className="flex-1 text-center py-2.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all">
+                            Live Site
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimatedSection>
+                ))}
+
+                <AnimatedSection>
+                  <div className={`${t.bg2} rounded-2xl border-2 border-dashed ${t.bdr} flex flex-col items-center justify-center p-12 min-h-[320px] text-center hover:border-indigo-500 transition-all`}>
+                    <div className="text-5xl mb-4">🚧</div>
+                    <h3 className="font-bold text-lg mb-2">More Coming Soon</h3>
+                    <p className={`${t.muted} text-sm`}>Currently working on new projects — check back soon!</p>
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </section>
+
+          {/* ── TESTIMONIALS ────────────────────────────────────── */}
+          <section className="py-24">
+            <div className="max-w-3xl mx-auto px-6">
+              <AnimatedSection>
+                <div className="text-center mb-14">
+                  <h2 className="text-4xl font-bold mb-3">Testimonials</h2>
+                  <p className={t.muted}>What colleagues and managers say</p>
+                </div>
+              </AnimatedSection>
+
+              {TESTIMONIALS.map((item, i) => (
+                <AnimatedSection key={i}>
+                  <div className={`${t.bg2} rounded-2xl p-8 border ${t.bdr} relative overflow-hidden`}>
+                    <div className="absolute -top-6 -left-2 text-indigo-500/10 font-serif select-none" style={{ fontSize: "9rem", lineHeight: 1 }}>"</div>
+                    <p className={`${t.muted} text-base md:text-lg leading-relaxed italic mb-8 relative z-10`}>
+                      "{item.quote}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg" style={{ background: "linear-gradient(135deg, #6366f1, #a855f7)" }}>
+                        {item.initials}
+                      </div>
+                      <div>
+                        <div className="font-bold">{item.name}</div>
+                        <div className={`${t.muted} text-sm`}>{item.role}</div>
+                      </div>
+                      <div className="ml-auto text-yellow-400 tracking-tight">★★★★★</div>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </section>
+
+          {/* ── CONTACT ─────────────────────────────────────────── */}
+          <section id="contact" className="py-32 relative overflow-hidden">
+            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1e1b4b, #4c1d95, #0f172a)" }} />
+            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(99,102,241,0.2) 0%, transparent 65%)" }} />
+            <AnimatedSection>
+              <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
+                <div className="text-5xl mb-6">✉️</div>
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Let's Work Together</h2>
+                <p className="text-indigo-200 text-lg mb-10 leading-relaxed">
+                  Open to frontend contracts, full-time roles, and freelance projects. Let's build something great.
+                </p>
+                <a
+                  href="mailto:vtmmrs@gmail.com"
+                  className="inline-flex items-center gap-2 bg-white text-indigo-900 font-bold px-10 py-4 rounded-full hover:scale-105 transition-all shadow-2xl mb-10 text-lg"
+                >
+                  Say Hello 👋
+                </a>
+                <div className="flex justify-center gap-8 text-indigo-300">
+                  <a href="https://github.com/vtmmrs" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
+                    ⌨️ GitHub
+                  </a>
+                  <a href="https://www.linkedin.com/in/vivientimmers" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
+                    💼 LinkedIn
+                  </a>
+                  <a href="https://vtmmrs.github.io" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
+                    🌐 Portfolio
+                  </a>
+                </div>
+              </div>
+            </AnimatedSection>
+          </section>
+
+          {/* ── FOOTER ──────────────────────────────────────────── */}
+          <footer className="bg-slate-950 text-slate-500 py-6 text-center text-sm">
+            <p>© {new Date().getFullYear()} Vivien Timmers · Built with React &amp; 💜</p>
+          </footer>
+
+          {/* ── SCROLL TO TOP ────────────────────────────────────── */}
+          {scrollY > 400 && (
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="fixed bottom-8 right-8 w-12 h-12 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full flex items-center justify-center text-lg font-bold transition-all hover:scale-110 z-40"
+              style={{ boxShadow: "0 8px 25px rgba(99,102,241,0.4)" }}
+            >
+              ↑
+            </button>
+          )}
+        </div>
+      );
+    }
+
+    // ─── RENDER ───────────────────────────────────────────────────────────────
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<Portfolio />);
+  </script>
 </body>
 </html>
