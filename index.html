@@ -3,689 +3,786 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vivien Timmers – Frontend Engineer</title>
-  <meta name="description" content="Frontend Engineer with 4+ years of experience building responsive web apps and e-commerce platforms. Based in Melbourne, Australia." />
-  <meta property="og:title" content="Vivien Timmers – Frontend Engineer" />
-  <meta property="og:description" content="Design-driven developer. React · JavaScript · Tailwind · Shopify · Webflow." />
-  <meta property="og:type" content="website" />
+  <title>Vivien Timmers — Frontend Engineer</title>
+  <meta name="description" content="Frontend Engineer · React · JavaScript · E-commerce · Melbourne, Australia" />
+  <meta property="og:title" content="Vivien Timmers — Frontend Engineer" />
+  <meta property="og:description" content="Design-driven dev. React · Shopify · Webflow · Tailwind · Ruby on Rails." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>" />
-
-  <!-- Tailwind CSS (Play CDN – supports all v3 utilities incl. arbitrary values) -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          fontFamily: {
+            display: ['"Bebas Neue"', 'sans-serif'],
+            body:    ['"DM Sans"', 'system-ui', 'sans-serif'],
+            mono:    ['"JetBrains Mono"', 'monospace'],
+          }
         }
       }
     }
   </script>
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- React 18 + ReactDOM (UMD) -->
+  <!-- React 18 + ReactDOM -->
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-
-  <!-- Babel Standalone (JSX transpilation in browser) -->
+  <!-- Babel Standalone -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
-    /* Cursor blink animation */
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    .cursor-blink { animation: blink 1s step-end infinite; }
-    /* Fade-in animation used by AnimatedSection */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(2rem); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { animation: fadeUp 0.7s ease forwards; }
-    .fade-up-hidden { opacity: 0; transform: translateY(2rem); }
+    *, *::before, *::after { box-sizing: border-box; }
+    html  { scroll-behavior: smooth; }
+    body  { margin: 0; background: #0c1117; color: #f0ece0; font-family: 'DM Sans', system-ui, sans-serif; }
+
+    /* ── Cursor blink ──────────────────────────────────────── */
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .cursor { animation: blink 1s step-end infinite; }
+
+    /* ── Scroll-triggered fade-up ──────────────────────────── */
+    .fade-hidden  { opacity:0; transform:translateY(1.5rem); }
+    .fade-visible { opacity:1; transform:translateY(0); transition: opacity .65s ease, transform .65s ease; }
+
+    /* ── Ticker marquee ────────────────────────────────────── */
+    @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .ticker-wrap  { overflow: hidden; }
+    .ticker-track { display: flex; width: max-content; animation: ticker 28s linear infinite; }
+    .ticker-track:hover { animation-play-state: paused; }
+
+    /* ── Hover utilities (yolk yellow) ─────────────────────── */
+    .h-yolk-border:hover { border-color: #F5C518 !important; }
+    .h-yolk-text:hover   { color: #F5C518 !important; }
+    .h-yolk-fill:hover   { background: #F5C518 !important; color: #0c1117 !important; }
+
+    /* ── Experience logo ───────────────────────────────────── */
+    .exp-logo { width:48px; height:48px; flex-shrink:0; display:flex; align-items:center; justify-content:center; background:#19222a; border:1px solid #253040; border-radius:4px; }
+    .exp-logo img { width:38px; height:38px; object-fit:contain; border-radius:3px; }
+
+    /* ── Section heading gradient underline ────────────────── */
+    .yolk-underline { border-bottom: 2px solid #F5C518; display:inline; }
+
+    /* ── Project link pill ─────────────────────────────────── */
+    .plink { display:inline-flex; align-items:center; gap:4px; font-family:'JetBrains Mono',monospace; font-size:11px;
+             padding:5px 12px; border:1px solid #2a3a45; color:#6b8090; text-decoration:none; transition:border-color .2s,color .2s; border-radius:4px; }
+    .plink:hover { border-color:#F5C518; color:#F5C518; }
+
+    /* ── No scrollbar on ticker ────────────────────────────── */
+    .ticker-wrap::-webkit-scrollbar { display:none; }
   </style>
 </head>
-<body class="bg-slate-900 text-white">
+
+<body>
   <div id="root"></div>
 
   <script type="text/babel">
-    const { useState, useEffect, useRef, useCallback } = React;
+    const { useState, useEffect, useRef } = React;
 
-    // ─── DATA ─────────────────────────────────────────────────────────────────
-    const ROLES = [
-      "Frontend Engineer",
-      "React Developer",
-      "Web Developer",
-      "Digital Designer",
-      "Content Creator",
-      "E-commerce Specialist",
-    ];
+    /* ══ CONSTANTS ════════════════════════════════════════════════════════════ */
+    const Y   = '#F5C518';   /* yolk yellow       */
+    const INK = '#0c1117';   /* dark teal-navy    */
+    const SRF = '#111c24';   /* surface           */
+    const CRD = '#162030';   /* card              */
+    const RIM = '#253040';   /* border            */
+    const FOG = '#6b8090';   /* muted             */
+    const CRM = '#f0ece0';   /* cream white       */
+
+    /* ══ DATA ════════════════════════════════════════════════════════════════ */
+    const ROLES = ['Frontend Engineer','React Developer','E-commerce Builder','Digital Designer','Web Developer','Content Creator'];
 
     const SKILLS = {
-      frontend: ["HTML", "CSS / SCSS", "JavaScript (ES6+)", "React", "jQuery", "Tailwind CSS", "Bootstrap"],
-      toolsAndCMS: ["WordPress", "Webflow", "Shopify", "Squarespace", "Wix", "cPanel", "REST APIs", "Ruby on Rails"],
-      designAndTools: ["Figma", "Adobe Photoshop", "Adobe Illustrator", "Adobe XD", "Premiere Pro", "GitHub", "Jira", "Notion"],
+      fe:     ['HTML','CSS / SCSS','JavaScript ES6+','React','jQuery','Tailwind CSS','Bootstrap'],
+      cms:    ['WordPress','Webflow','Shopify','Squarespace','Wix','cPanel','REST APIs','Ruby on Rails'],
+      design: ['Figma','Adobe Photoshop','Illustrator','Adobe XD','Premiere Pro','GitHub','Jira','Notion'],
     };
 
-    const EXPERIENCE = [
+    const EXP = [
       {
-        icon: "🛹",
-        title: "E-commerce & Digital Assistant",
-        company: "Twelve Board Store — Melbourne, Richmond",
-        period: "2024 – Present",
-        description: "Managing and updating e-commerce product listings, inventory and website content. Optimising product pages for usability, SEO and conversion. Maintaining CMS and backend systems supporting online retail operations.",
-        tags: ["E-commerce", "Shopify", "SEO", "Content Creation", "CMS"],
+        logo:    'https://twelveboardstore.com.au/cdn/shop/files/dsadsad_96x96.png?v=1614307770',
+        role:    'E-commerce & Digital Assistant',
+        company: 'Twelve Board Store',
+        url:     'https://twelveboardstore.com.au/',
+        period:  '2024 – Present',
+        desc:    'Managing e-commerce listings, inventory and website content. Optimising Shopify product pages for SEO and conversion. Collaborating with marketing and retail teams on campaigns and digital assets.',
+        tags:    ['Shopify','SEO','E-commerce','CMS','Content'],
+        links:   [{ label:'twelveboardstore.com.au', href:'https://twelveboardstore.com.au/' }],
       },
       {
-        icon: "🎓",
-        title: "Web Developer & Digital Designer",
-        company: "RMIT University · University of Melbourne",
-        period: "Jul 2023 – Present",
-        description: "Building and maintaining responsive web pages showcasing graduate student work. Creating digital assets including banners, animations and UI components. Integrating external portfolios and content platforms for university faculties.",
-        tags: ["React", "HTML", "CSS", "JavaScript", "UI Design"],
+        logo:    'https://images.squarespace-cdn.com/content/v1/613ed0d737a8a67d456244ed/259daf09-08dc-4578-914f-3587fbcc9aa2/favicon.ico?format=100w',
+        role:    'Web Developer & Digital Designer',
+        company: 'RMIT University · University of Melbourne',
+        url:     'https://www.rmitindustrialdesign.com/',
+        period:  'Jul 2023 – Present',
+        desc:    'Building and maintaining responsive web pages showcasing graduate student work for RMIT Industrial Design and UMelb faculties. Creating digital assets — banners, animations, UI components.',
+        tags:    ['React','HTML/CSS','JavaScript','UI Design'],
+        links:   [
+          { label:'rmitindustrialdesign.com',     href:'https://www.rmitindustrialdesign.com/' },
+          { label:'Behance — RMIT ID Projects',   href:'https://www.behance.net/rmitid/projects' },
+        ],
       },
       {
-        icon: "🎵",
-        title: "Web Developer",
-        company: "Bounce Audio — Melbourne",
-        period: "Feb 2022 – Present",
-        description: "Maintaining and improving the e-commerce platform and product database. Implementing API integrations and site functionality updates. Performing UI/UX improvements and performance optimisations on production systems.",
-        tags: ["JavaScript", "REST APIs", "UI/UX", "E-commerce", "Performance"],
+        logo:    'https://bounceaudio.com.au/cdn/shop/files/favicon_newlogo_96x96.png?v=1757480616',
+        role:    'Web Developer',
+        company: 'Bounce Audio',
+        url:     'https://bounceaudio.com.au/',
+        period:  'Feb 2022 – Present',
+        desc:    'Maintaining and improving the Shopify e-commerce platform and product database. Implementing API integrations and site functionality updates. UI/UX improvements and performance optimisations on production systems.',
+        tags:    ['JavaScript','REST APIs','Shopify','UI/UX','Performance'],
+        links:   [{ label:'bounceaudio.com.au', href:'https://bounceaudio.com.au/' }],
       },
       {
-        icon: "🌍",
-        title: "Full Stack Web Developer (Remote)",
-        company: "Cogini — France",
-        period: "Mar 2022 – Aug 2022",
-        description: "Developed frontend and backend features for an educational SaaS platform connecting schools, parents and communities. Collaborated remotely with an international development team across timezones.",
-        tags: ["Ruby on Rails", "JavaScript", "HTML", "CSS", "Remote"],
+        logo:    null,
+        role:    'Full Stack Web Developer',
+        company: 'Cogini — France (Remote)',
+        url:     'https://www.cogini.com/',
+        period:  'Mar 2022 – Aug 2022',
+        desc:    'Developed frontend and backend features for an educational SaaS platform connecting schools, parents and communities. Collaborated remotely with an international team across timezones.',
+        tags:    ['Ruby on Rails','JavaScript','HTML/CSS','Remote'],
+        links:   [{ label:'cogini.com', href:'https://www.cogini.com/' }],
       },
       {
-        icon: "🤖",
-        title: "Digital Designer & Frontend Developer",
-        company: "Mesh AI — Melbourne",
-        period: "Oct 2020 – Feb 2021",
-        description: "Designed and developed web pages and chatbot interfaces from wireframes and CMS templates. Contributed to major brand projects including MINI/BMW, Supreme Leader and Bell Property.",
-        tags: ["Frontend", "UI Design", "CMS", "Chatbot UI", "Brand Work"],
+        logo:    null,
+        role:    'Digital Designer & Frontend Developer',
+        company: 'Mesh AI — Melbourne',
+        url:     null,
+        period:  'Oct 2020 – Feb 2021',
+        desc:    'Designed and built web pages and chatbot interfaces from wireframes and CMS templates. Contributed to major brand projects including MINI/BMW and Bell Property.',
+        tags:    ['Frontend','UI Design','CMS','Chatbot UI'],
+        links:   [
+          { label:'SupremeLeader',  href:'https://www.supremeleader.com.au/' },
+          { label:'Concept Eight',  href:'https://concepteight.com.au/' },
+          { label:'Maker Advisory', href:'https://makeradvisory.com.au/' },
+        ],
       },
       {
-        icon: "💼",
-        title: "Freelance Web Designer & Developer",
-        company: "Independent — Australia",
-        period: "2020",
-        description: "Designed and built responsive websites for small businesses. Implemented booking systems and video-based content platforms with a focus on UX, accessibility and performance.",
-        tags: ["WordPress", "Webflow", "Responsive Design", "UX", "Freelance"],
+        logo:    null,
+        role:    'Freelance Web Designer & Developer',
+        company: 'Independent — Australia',
+        url:     null,
+        period:  '2020',
+        desc:    'Designed and built responsive websites for small businesses — booking systems, content platforms, and brand identities. Focus on UX, accessibility and performance.',
+        tags:    ['WordPress','Webflow','Responsive Design','UX','Freelance'],
+        links:   [
+          { label:'DATTA Promo Video', href:'https://vtmmrs.github.io/' },
+        ],
       },
       {
-        icon: "📸",
-        title: "Photographer & Videographer",
-        company: "Freelance — Australia",
-        period: "Feb 2020 – Present",
-        description: "Producing digital content for businesses and creative brands. Applying visual storytelling principles and strong project management skills to every production.",
-        tags: ["Photography", "Adobe Premiere", "Photoshop", "Content Creation"],
-      },
-    ];
-
-    const EDUCATION = [
-      { school: "Le Wagon", course: "Full Stack Web Development Bootcamp", year: "2021" },
-      { school: "Codecademy", course: "Web Development Career Path", year: "2020" },
-      { school: "Australian Pacific College", course: "Diplomas: Marketing & Social Media", year: "2017–2019" },
-      { school: "St-Luc Liège, Belgium", course: "High School Degree in Graphic Design", year: "2004–2007" },
-    ];
-
-    const PROJECTS = [
-      {
-        emoji: "🏢",
-        name: "Office Connect",
-        subtitle: "Le Wagon Final Project · 2021",
-        description: "Full-stack platform for booking co-working spaces during COVID-19 office capacity restrictions. Users browse and book available spaces; venue owners list and manage their spaces with an integrated map and booking system.",
-        tags: ["Ruby on Rails", "JavaScript", "PostgreSQL", "Mapbox", "Heroku"],
-        github: "https://github.com/vtmmrs",
-        website: "https://vtmmrs.github.io",
-        gradient: "from-indigo-900 via-indigo-800 to-purple-900",
-      },
-    ];
-
-    const TESTIMONIALS = [
-      {
-        quote: "Vivien's incredible eye for design coupled with his technical skillset consistently inspired those who worked with him. Driven, communicative, and calm under pressure are all qualities he demonstrated throughout his Bootcamp. Any organisation would be lucky to have Vivien on their team.",
-        name: "Julian Harrington",
-        role: "Project Manager at Le Wagon",
-        initials: "JH",
+        logo:    null,
+        role:    'Underwater Photographer & Videographer',
+        company: 'Master Divers — Koh Tao, Thailand',
+        url:     null,
+        period:  'Dec 2014 – Aug 2015',
+        desc:    'Commercial underwater photography and videography for dive resorts. Managed end-to-end production and on-site sales. Also worked as PADI Divemaster.',
+        tags:    ['Photography','Adobe Premiere','Photoshop','PADI Divemaster'],
+        links:   [
+          { label:'Underwater Showreel',   href:'https://vtmmrs.github.io/' },
+          { label:'Fury Road Cocktail Bar', href:'https://vtmmrs.github.io/' },
+        ],
       },
     ];
 
-    // ─── HOOKS ────────────────────────────────────────────────────────────────
-    function useTypewriter(words, typingSpeed = 75, deletingSpeed = 38, pauseMs = 2200) {
-      const [text, setText] = useState("");
-      const [wordIndex, setWordIndex] = useState(0);
-      const [phase, setPhase] = useState("typing");
+    const EDU = [
+      { school:'Le Wagon',                   course:'Full Stack Web Dev Bootcamp', year:'2021' },
+      { school:'Codecademy',                  course:'Web Development Career Path', year:'2020' },
+      { school:'Australian Pacific College',  course:'Diplomas: Marketing & Social Media', year:'2017–2019' },
+      { school:'St-Luc Liège, Belgium',       course:'High School: Graphic Design', year:'2004–2007' },
+    ];
 
+    /* ══ HOOKS ═══════════════════════════════════════════════════════════════ */
+    function useTypewriter(words, ts=70, ds=35, pause=2200) {
+      const [txt, setTxt] = useState('');
+      const [wi, setWi]   = useState(0);
+      const [ph, setPh]   = useState('typing');
       useEffect(() => {
-        const word = words[wordIndex];
+        const word = words[wi];
         let t;
-        if (phase === "typing") {
-          if (text.length < word.length) {
-            t = setTimeout(() => setText(word.slice(0, text.length + 1)), typingSpeed);
-          } else {
-            t = setTimeout(() => setPhase("deleting"), pauseMs);
-          }
+        if (ph === 'typing') {
+          t = txt.length < word.length
+            ? setTimeout(() => setTxt(word.slice(0, txt.length + 1)), ts)
+            : setTimeout(() => setPh('deleting'), pause);
         } else {
-          if (text.length > 0) {
-            t = setTimeout(() => setText(text.slice(0, -1)), deletingSpeed);
-          } else {
-            setWordIndex(i => (i + 1) % words.length);
-            setPhase("typing");
-          }
+          if (txt.length > 0) { t = setTimeout(() => setTxt(txt.slice(0,-1)), ds); }
+          else { setWi(i => (i+1) % words.length); setPh('typing'); }
         }
         return () => clearTimeout(t);
-      }, [text, phase, wordIndex]);
-
-      return text;
+      }, [txt, ph, wi]);
+      return txt;
     }
 
-    function useVisible(ref, threshold = 0.12) {
-      const [visible, setVisible] = useState(false);
+    function useVisible(ref, threshold=0.08) {
+      const [v, setV] = useState(false);
       useEffect(() => {
         if (!ref.current) return;
-        const obs = new IntersectionObserver(
-          ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-          { threshold }
-        );
+        const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setV(true); }, { threshold });
         obs.observe(ref.current);
         return () => obs.disconnect();
       }, []);
-      return visible;
+      return v;
     }
 
-    // ─── SUB-COMPONENTS ───────────────────────────────────────────────────────
-    function AnimatedSection({ children, delay = 0, className = "" }) {
+    /* ══ TINY COMPONENTS ════════════════════════════════════════════════════ */
+    function FadeUp({ children, delay=0, className='' }) {
       const ref = useRef(null);
-      const visible = useVisible(ref);
+      const v   = useVisible(ref);
       return (
-        <div
-          ref={ref}
-          className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} ${className}`}
-          style={{ transitionDelay: `${delay}ms` }}
-        >
+        <div ref={ref}
+          style={{ transitionDelay:`${delay}ms`, transition:'opacity .65s ease, transform .65s ease' }}
+          className={`${v ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'} ${className}`}>
           {children}
         </div>
       );
     }
 
-    function Tag({ label, variant = "indigo" }) {
-      const styles = {
-        indigo: "bg-indigo-500/10 text-indigo-400 border border-indigo-500/20",
-        purple: "bg-purple-500/10 text-purple-400 border border-purple-500/20",
-        teal:   "bg-teal-500/10 text-teal-400 border border-teal-500/20",
-      };
+    function SecLabel({ n, label }) {
       return (
-        <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${styles[variant]}`}>
-          {label}
-        </span>
-      );
-    }
-
-    function SkillCard({ icon, label, skills, variant, isDark }) {
-      const cardBg = isDark ? "bg-slate-800" : "bg-white";
-      const border = isDark ? "border-slate-700" : "border-gray-200";
-      return (
-        <div className={`${cardBg} rounded-2xl p-6 border ${border} hover:border-indigo-500 transition-all duration-300 h-full`}>
-          <div className="text-4xl mb-3">{icon}</div>
-          <h3 className="text-base font-bold mb-4">{label}</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.map(s => <Tag key={s} label={s} variant={variant} />)}
-          </div>
+        <div className="flex items-center gap-4 mb-10">
+          <span className="font-mono text-xs tracking-[0.3em]" style={{color:Y}}>0{n} /</span>
+          <div className="flex-1 h-px" style={{background:RIM}} />
+          <span className="font-mono text-xs tracking-[0.4em] uppercase" style={{color:FOG}}>{label}</span>
         </div>
       );
     }
 
-    // ─── MAIN PORTFOLIO ───────────────────────────────────────────────────────
+    function CompLogo({ src, name }) {
+      const [err, setErr] = useState(false);
+      if (!src || err) return (
+        <div className="exp-logo font-display text-2xl tracking-widest" style={{color:Y}}>
+          {(name||'?')[0].toUpperCase()}
+        </div>
+      );
+      return (
+        <div className="exp-logo">
+          <img src={src} alt={name} onError={() => setErr(true)} />
+        </div>
+      );
+    }
+
+    /* ══ MAIN ════════════════════════════════════════════════════════════════ */
     function Portfolio() {
-      const [isDark, setIsDark] = useState(true);
       const [scrollY, setScrollY] = useState(0);
-      const [scrollPct, setScrollPct] = useState(0);
-      const [activeSection, setActiveSection] = useState("home");
-      const [mobileOpen, setMobileOpen] = useState(false);
-      const typewriterText = useTypewriter(ROLES);
+      const [pct,    setPct]      = useState(0);
+      const [active, setActive]   = useState('home');
+      const [mob,    setMob]      = useState(false);
+      const tw = useTypewriter(ROLES);
 
       useEffect(() => {
-        const onScroll = () => {
+        const fn = () => {
           setScrollY(window.scrollY);
-          const total = document.documentElement.scrollHeight - window.innerHeight;
-          setScrollPct(total > 0 ? (window.scrollY / total) * 100 : 0);
+          const h = document.documentElement.scrollHeight - window.innerHeight;
+          setPct(h > 0 ? (window.scrollY / h) * 100 : 0);
         };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+        window.addEventListener('scroll', fn, {passive:true});
+        return () => window.removeEventListener('scroll', fn);
       }, []);
 
       useEffect(() => {
-        const sections = document.querySelectorAll("section[id]");
         const obs = new IntersectionObserver(
-          entries => entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); }),
-          { rootMargin: "-35% 0px -60% 0px" }
+          es => es.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }),
+          { rootMargin:'-35% 0px -55% 0px' }
         );
-        sections.forEach(s => obs.observe(s));
+        document.querySelectorAll('section[id]').forEach(s => obs.observe(s));
         return () => obs.disconnect();
       }, []);
 
-      const scrollTo = id => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        setMobileOpen(false);
-      };
+      const go = id => { document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); setMob(false); };
+      const NAV = ['home','skills','experience','projects','contact'];
 
-      const t = {
-        bg:    isDark ? "bg-slate-900"    : "bg-gray-50",
-        bg2:   isDark ? "bg-slate-800"    : "bg-white",
-        bg3:   isDark ? "bg-slate-800/50" : "bg-gray-100",
-        text:  isDark ? "text-white"      : "text-slate-900",
-        muted: isDark ? "text-slate-400"  : "text-slate-500",
-        bdr:   isDark ? "border-slate-700": "border-gray-200",
-        nav:   isDark ? "bg-slate-900/90" : "bg-white/90",
-      };
-
-      const NAV = ["home", "skills", "experience", "projects", "contact"];
+      const ticker = ['REACT','JAVASCRIPT','TAILWIND','SHOPIFY','WEBFLOW','FIGMA','RUBY ON RAILS',
+                      'HTML / CSS','UI / UX','E-COMMERCE','FRONTEND','DIGITAL DESIGN','PHOTOGRAPHY',
+                      'ADOBE SUITE','WORDPRESS','API INTEGRATION'];
 
       return (
-        <div className={`${t.bg} ${t.text} min-h-screen font-sans transition-colors duration-300`}>
+        <div style={{background:INK, color:CRM, minHeight:'100vh', fontFamily:"'DM Sans',system-ui,sans-serif"}}>
 
-          {/* Scroll progress bar */}
-          <div
-            className="fixed top-0 left-0 h-[3px] z-50 transition-all duration-100"
-            style={{ width: `${scrollPct}%`, background: "linear-gradient(90deg,#6366f1,#a855f7,#ec4899)" }}
-          />
+          {/* ░░ PROGRESS BAR ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <div style={{position:'fixed',top:0,left:0,height:2,width:`${pct}%`,background:Y,zIndex:60}} />
 
-          {/* ── NAVBAR ──────────────────────────────────────────── */}
-          <nav className={`fixed top-0 left-0 right-0 z-40 ${t.nav} backdrop-blur-lg border-b ${t.bdr} transition-all`}>
-            <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-              <button
-                onClick={() => scrollTo("home")}
-                className="font-extrabold text-xl tracking-tight"
-                style={{ background: "linear-gradient(90deg,#818cf8,#c084fc)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-              >
+          {/* ░░ NAVBAR ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <nav style={{
+            position:'fixed',top:0,left:0,right:0,zIndex:50,
+            background:`${INK}f0`,backdropFilter:'blur(18px)',
+            borderBottom:`1px solid ${RIM}`
+          }}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'0 24px',height:60,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+              <button onClick={()=>go('home')} style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:24,letterSpacing:'0.15em',color:Y,background:'none',border:'none',cursor:'pointer'}}>
                 VT
               </button>
 
-              {/* Desktop links */}
-              <div className="hidden md:flex items-center gap-8">
+              {/* desktop */}
+              <div style={{display:'flex',gap:36}} className="hidden md:flex">
                 {NAV.map(s => (
-                  <button
-                    key={s}
-                    onClick={() => scrollTo(s)}
-                    className={`capitalize text-sm font-medium transition-colors ${activeSection === s ? "text-indigo-400" : `${t.muted} hover:text-indigo-400`}`}
-                  >
+                  <button key={s} onClick={()=>go(s)}
+                    style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,letterSpacing:'0.25em',
+                            textTransform:'uppercase',color:active===s?Y:FOG,background:'none',border:'none',cursor:'pointer'}}>
                     {s}
                   </button>
                 ))}
               </div>
 
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setIsDark(!isDark)}
-                  className={`w-9 h-9 rounded-full ${t.bg2} border ${t.bdr} flex items-center justify-center hover:border-indigo-500 transition-all text-base`}
-                >
-                  {isDark ? "☀️" : "🌙"}
+              <div style={{display:'flex',gap:12,alignItems:'center'}}>
+                <button onClick={()=>go('contact')} className="hidden md:block"
+                  style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.2em',fontSize:14,
+                          padding:'8px 20px',background:Y,color:INK,border:`1px solid ${Y}`,cursor:'pointer',borderRadius:6}}>
+                  HIRE ME
                 </button>
-                <button
-                  onClick={() => scrollTo("contact")}
-                  className="hidden md:inline-flex bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
-                >
-                  Hire Me
-                </button>
-                {/* Hamburger */}
-                <button
-                  onClick={() => setMobileOpen(!mobileOpen)}
-                  className={`md:hidden w-9 h-9 rounded-full ${t.bg2} border ${t.bdr} flex flex-col items-center justify-center gap-[5px]`}
-                >
-                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-                  <span className={`block h-0.5 w-5 bg-current transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+                {/* hamburger */}
+                <button onClick={()=>setMob(!mob)} className="md:hidden"
+                  style={{background:'none',border:'none',cursor:'pointer',display:'flex',flexDirection:'column',gap:5,padding:4}}>
+                  {[mob?'rotate(45deg) translateY(7px)':'',mob?'scaleX(0)':'',mob?'rotate(-45deg) translateY(-7px)':''].map((tr,i)=>(
+                    <span key={i} style={{display:'block',height:2,width:20,background:CRM,transform:tr,transition:'transform .25s',opacity:i===1&&mob?0:1}} />
+                  ))}
                 </button>
               </div>
             </div>
-            {mobileOpen && (
-              <div className={`md:hidden ${t.bg2} border-t ${t.bdr} px-6 py-4 flex flex-col gap-4`}>
+
+            {mob && (
+              <div style={{background:SRF,borderTop:`1px solid ${RIM}`,padding:'16px 24px',display:'flex',flexDirection:'column',gap:16}}>
                 {NAV.map(s => (
-                  <button key={s} onClick={() => scrollTo(s)} className={`capitalize text-left text-sm font-medium ${activeSection === s ? "text-indigo-400" : t.muted}`}>
+                  <button key={s} onClick={()=>go(s)}
+                    style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,letterSpacing:'0.3em',
+                            textTransform:'uppercase',color:active===s?Y:FOG,background:'none',border:'none',cursor:'pointer',textAlign:'left'}}>
                     {s}
                   </button>
                 ))}
-                <button onClick={() => scrollTo("contact")} className="bg-indigo-600 text-white py-2 rounded-full text-sm font-semibold">
-                  Hire Me
+                <button onClick={()=>go('contact')}
+                  style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.2em',fontSize:14,
+                          padding:'8px',background:Y,color:INK,border:`1px solid ${Y}`,cursor:'pointer',marginTop:8,borderRadius:6}}>
+                  HIRE ME
                 </button>
               </div>
             )}
           </nav>
 
-          {/* ── HERO ────────────────────────────────────────────── */}
-          <section id="home" className="min-h-screen flex items-center pt-20 pb-16">
-            <div className="max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 items-center">
+          {/* ░░ HERO ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section id="home" style={{minHeight:'100vh',display:'flex',alignItems:'center',paddingTop:80}}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'60px 24px',width:'100%',display:'grid',gridTemplateColumns:'1fr',gap:48,alignItems:'center'}}
+              className="md:grid-cols-2">
+
+              {/* Left */}
               <div>
-                <span className={`inline-block text-sm font-mono ${t.muted} mb-5 border ${t.bdr} px-4 py-1.5 rounded-full`}>
-                  👋 &nbsp;Bonjour! I'm
-                </span>
-
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-4">
-                  Vivien
-                  <br />
-                  <span style={{ background: "linear-gradient(90deg,#818cf8,#c084fc,#f472b6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                    Timmers
-                  </span>
-                </h1>
-
-                {/* Typewriter */}
-                <div className="text-xl md:text-2xl font-semibold mb-6 flex items-center gap-2" style={{ minHeight: "2.25rem" }}>
-                  <span className={t.muted}>A&nbsp;</span>
-                  <span className="text-indigo-400">{typewriterText}</span>
-                  <span className="text-indigo-400 cursor-blink">|</span>
+                {/* Available badge */}
+                <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,letterSpacing:'0.35em',
+                              color:Y,display:'inline-flex',alignItems:'center',gap:8,
+                              border:`1px solid ${RIM}`,padding:'6px 14px',marginBottom:28,borderRadius:4}}>
+                  ● AVAILABLE FOR WORK
                 </div>
 
-                <p className={`${t.muted} text-base md:text-lg leading-relaxed mb-8 max-w-lg`}>
-                  Frontend Engineer with 4+ years of experience building responsive web apps and e-commerce platforms.
-                  Based in 🇦🇺 Melbourne. Fluent in 🇫🇷 French &amp; 🇬🇧 English. Design-driven developer with a passion for clean code and great UX.
+                {/* Name */}
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",lineHeight:.9,marginBottom:20}}>
+                  <div style={{fontSize:'clamp(4.5rem,12vw,9rem)',color:CRM,letterSpacing:'0.02em'}}>
+                    VIVIEN
+                  </div>
+                  <div style={{fontSize:'clamp(4.5rem,12vw,9rem)',color:Y,letterSpacing:'0.02em'}}>
+                    TIMMERS
+                  </div>
+                </div>
+
+                {/* Typewriter */}
+                <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:14,color:FOG,
+                              display:'flex',alignItems:'center',gap:8,marginBottom:24,minHeight:24}}>
+                  <span style={{color:Y}}>→</span>
+                  <span>{tw}</span>
+                  <span className="cursor" style={{color:Y}}>_</span>
+                </div>
+
+                {/* Bio */}
+                <p style={{color:FOG,lineHeight:1.7,maxWidth:440,marginBottom:36,fontSize:15}}>
+                  Design-driven developer from 🇧🇪 Belgium, based in 🇦🇺 Melbourne.
+                  4+ years building responsive web apps, e-commerce platforms, and digital experiences.
+                  Fluent in French &amp; English.
                 </p>
 
-                <div className="flex flex-wrap gap-3 mb-10">
-                  <button
-                    onClick={() => scrollTo("projects")}
-                    className="bg-indigo-600 hover:bg-indigo-500 text-white px-7 py-3 rounded-full font-semibold transition-all hover:scale-105 shadow-lg"
-                    style={{ boxShadow: "0 8px 25px rgba(99,102,241,0.3)" }}
-                  >
-                    View My Work →
+                {/* CTAs */}
+                <div style={{display:'flex',flexWrap:'wrap',gap:12,marginBottom:40}}>
+                  <button onClick={()=>go('projects')}
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.2em',fontSize:15,
+                            padding:'14px 32px',background:Y,color:INK,border:`2px solid ${Y}`,cursor:'pointer',borderRadius:6}}>
+                    VIEW MY WORK
                   </button>
-                  <button
-                    onClick={() => scrollTo("contact")}
-                    className={`${t.bg2} border ${t.bdr} ${t.text} px-7 py-3 rounded-full font-semibold transition-all hover:border-indigo-500`}
-                  >
-                    Get In Touch
+                  <button onClick={()=>go('contact')} className="h-yolk-border"
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.2em',fontSize:15,
+                            padding:'14px 32px',background:'transparent',color:CRM,border:`2px solid ${RIM}`,cursor:'pointer',borderRadius:6}}>
+                    GET IN TOUCH
                   </button>
                 </div>
 
                 {/* Stats */}
-                <div className={`flex flex-wrap gap-8 border-t ${t.bdr} pt-8`}>
-                  {[["4+", "Years in Web Dev"], ["7+", "Roles & Projects"], ["2", "Languages"]].map(([n, l]) => (
+                <div style={{borderTop:`1px solid ${RIM}`,paddingTop:28,display:'flex',gap:36,flexWrap:'wrap'}}>
+                  {[['4+','Years in Web Dev'],['7+','Companies Trusted My Expertise'],['2','Languages']].map(([n,l])=>(
                     <div key={l}>
-                      <div className="text-2xl font-bold text-indigo-400">{n}</div>
-                      <div className={`text-xs ${t.muted}`}>{l}</div>
+                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:40,color:Y,lineHeight:1}}>{n}</div>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.25em',color:FOG,marginTop:4}}>{l}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Photo */}
-              <div className="flex justify-center md:justify-end">
-                <div className="relative">
-                  <div className="absolute inset-0 rounded-full opacity-20 scale-110" style={{ background: "radial-gradient(circle, #6366f1, #a855f7)", filter: "blur(40px)" }} />
-                  <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-indigo-500" style={{ boxShadow: "0 25px 60px rgba(99,102,241,0.35)" }}>
-                    <img
-                      src="https://vtmmrs.github.io/images/vivien.jpg"
-                      alt="Vivien Timmers"
-                      className="w-full h-full object-cover"
-                      onError={e => { e.target.parentElement.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;background:#1e293b">👨‍💻</div>'; }}
-                    />
+              {/* Right — Photo */}
+              <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div style={{position:'relative'}}>
+                  {/* Offset shadow box */}
+                  <div style={{position:'absolute',top:12,left:12,right:-12,bottom:-12,background:Y,zIndex:0}} />
+                  <div style={{position:'relative',zIndex:1,width:280,height:280,overflow:'hidden',
+                                border:`2px solid ${Y}`}}
+                    className="md:w-80 md:h-80">
+                    <img src="./images/vivien.jpg" alt="Vivien Timmers"
+                      style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}}
+                      onError={e=>{e.target.parentElement.innerHTML=`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.1em;color:#F5C518;background:#162030">VT</div>`;}} />
                   </div>
-                  <div className="absolute -bottom-3 -left-8 bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
-                    🚀 Frontend Engineer
-                  </div>
-                  <div className="absolute -top-3 -right-8 bg-purple-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg whitespace-nowrap">
-                    🎓 Le Wagon Alumni
+                  {/* Label chip */}
+                  <div style={{position:'absolute',bottom:-16,right:-16,fontFamily:"'Bebas Neue',sans-serif",
+                                letterSpacing:'0.2em',fontSize:11,padding:'6px 14px',background:Y,color:INK,zIndex:2}}>
+                    FRONTEND ENGINEER
                   </div>
                 </div>
               </div>
+
             </div>
           </section>
 
-          {/* ── SKILLS ──────────────────────────────────────────── */}
-          <section id="skills" className={`py-24 ${t.bg3}`}>
-            <div className="max-w-6xl mx-auto px-6">
-              <AnimatedSection>
-                <div className="text-center mb-14">
-                  <h2 className="text-4xl font-bold mb-3">Skills &amp; Tech Stack</h2>
-                  <p className={t.muted}>4+ years of hands-on frontend and e-commerce development</p>
-                </div>
-              </AnimatedSection>
+          {/* ░░ TICKER ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <div className="ticker-wrap" style={{borderTop:`1px solid ${RIM}`,borderBottom:`1px solid ${RIM}`,padding:'14px 0'}}>
+            <div className="ticker-track">
+              {[0,1].map(r => (
+                <span key={r} style={{display:'flex',alignItems:'center',gap:0}}>
+                  {ticker.map((s,i) => (
+                    <span key={i} style={{display:'flex',alignItems:'center',gap:24,paddingRight:24}}>
+                      <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:14,letterSpacing:'0.3em',color:FOG}}>{s}</span>
+                      <span style={{color:Y,fontSize:10}}>✦</span>
+                    </span>
+                  ))}
+                </span>
+              ))}
+            </div>
+          </div>
 
-              <div className="grid md:grid-cols-3 gap-6">
-                <AnimatedSection delay={0}>
-                  <SkillCard icon="💻" label="Frontend Development" skills={SKILLS.frontend} variant="indigo" isDark={isDark} />
-                </AnimatedSection>
-                <AnimatedSection delay={100}>
-                  <SkillCard icon="🛒" label="CMS, E-commerce &amp; APIs" skills={SKILLS.toolsAndCMS} variant="purple" isDark={isDark} />
-                </AnimatedSection>
-                <AnimatedSection delay={200}>
-                  <SkillCard icon="🎨" label="Design &amp; Workflow Tools" skills={SKILLS.designAndTools} variant="teal" isDark={isDark} />
-                </AnimatedSection>
+          {/* ░░ SKILLS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section id="skills" style={{padding:'100px 0',borderBottom:`1px solid ${RIM}`}}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'0 24px'}}>
+
+              <FadeUp>
+                <SecLabel n={1} label="Skills & Stack" />
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",lineHeight:.9,marginBottom:56}}>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:CRM}}>TOOLS OF</div>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:Y}}>THE TRADE.</div>
+                </div>
+              </FadeUp>
+
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(260px,1fr))',gap:12}}>
+                {[
+                  {icon:'▸',label:'FRONTEND DEVELOPMENT', list:SKILLS.fe},
+                  {icon:'▸',label:'CMS, E-COMMERCE & APIS', list:SKILLS.cms},
+                  {icon:'▸',label:'DESIGN & WORKFLOW TOOLS', list:SKILLS.design},
+                ].map(({icon,label,list},i) => (
+                  <FadeUp key={label} delay={i*80}>
+                    <div className="h-yolk-border" style={{background:CRD,border:`1px solid ${RIM}`,padding:24,height:'100%',transition:'border-color .2s',borderRadius:6}}>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:13,letterSpacing:'0.2em',color:Y,marginBottom:16,fontWeight:600}}>
+                        {icon} {label}
+                      </div>
+                      <div style={{display:'flex',flexWrap:'wrap',gap:6}}>
+                        {list.map(s => (
+                          <span key={s} style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,
+                                                padding:'4px 10px',border:`1px solid ${RIM}`,color:FOG,borderRadius:3}}>
+                            {s}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </FadeUp>
+                ))}
               </div>
 
               {/* Info strip */}
-              <AnimatedSection delay={300}>
-                <div className={`mt-6 ${t.bg2} rounded-2xl p-6 border ${t.bdr} flex flex-wrap items-center gap-6`}>
-                  {[
-                    ["🌐", "Languages", "French (Native) · English (Bilingual)"],
-                    ["🤝", "Work Style", "Remote · Agile · Independent · Collaborative"],
-                    ["📍", "Location", "Melbourne VIC · Available Remote AUS/EU"],
-                  ].map(([icon, label, value]) => (
-                    <div key={label} className="flex items-center gap-3">
-                      <span className="text-2xl">{icon}</span>
+              <FadeUp delay={240}>
+                <div style={{marginTop:12,background:CRD,border:`1px solid ${RIM}`,padding:'20px 24px',
+                              display:'flex',flexWrap:'wrap',gap:24,alignItems:'center',borderRadius:6}}>
+                  {[['🌐','LANGUAGES','French (Native) · English (Bilingual)'],
+                    ['🤝','WORK STYLE','Remote · Agile · Independent · Collaborative'],
+                    ['📍','LOCATION','Melbourne VIC · Available Remote AUS / EU']
+                  ].map(([e,l,v])=>(
+                    <div key={l} style={{display:'flex',alignItems:'center',gap:12}}>
+                      <span style={{fontSize:18}}>{e}</span>
                       <div>
-                        <div className="font-bold text-sm">{label}</div>
-                        <div className={`text-sm ${t.muted}`}>{value}</div>
+                        <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:9,letterSpacing:'0.3em',color:Y,marginBottom:3}}>{l}</div>
+                        <div style={{fontSize:13,color:FOG}}>{v}</div>
                       </div>
                     </div>
                   ))}
                 </div>
-              </AnimatedSection>
+              </FadeUp>
+
             </div>
           </section>
 
-          {/* ── EXPERIENCE ──────────────────────────────────────── */}
-          <section id="experience" className="py-24">
-            <div className="max-w-4xl mx-auto px-6">
-              <AnimatedSection>
-                <div className="text-center mb-14">
-                  <h2 className="text-4xl font-bold mb-3">Experience</h2>
-                  <p className={t.muted}>A track record across startups, universities, e-commerce, and freelance</p>
+          {/* ░░ EXPERIENCE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section id="experience" style={{padding:'100px 0',borderBottom:`1px solid ${RIM}`}}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'0 24px'}}>
+
+              <FadeUp>
+                <SecLabel n={2} label="Experience" />
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",lineHeight:.9,marginBottom:56}}>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:CRM}}>WHERE I'VE</div>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:Y}}>BUILT THINGS.</div>
                 </div>
-              </AnimatedSection>
+              </FadeUp>
 
-              <div className="relative">
-                {/* Timeline line */}
-                <div className="absolute left-6 md:left-8 top-4 bottom-4 w-px opacity-30" style={{ background: "linear-gradient(to bottom, #6366f1, #a855f7, transparent)" }} />
+              {/* Experience cards */}
+              <div style={{display:'flex',flexDirection:'column',gap:8}}>
+                {EXP.map((exp,i) => (
+                  <FadeUp key={i} delay={i*50}>
+                    <div className="h-yolk-border" style={{background:CRD,border:`1px solid ${RIM}`,
+                          padding:'24px',transition:'border-color .2s',borderRadius:6}}>
+                      <div style={{display:'flex',gap:20,alignItems:'flex-start'}}>
 
-                <div className="space-y-7">
-                  {EXPERIENCE.map((exp, i) => (
-                    <AnimatedSection key={i} delay={i * 60}>
-                      <div className="relative flex gap-5 md:gap-6">
-                        <div
-                          className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center text-xl md:text-2xl shadow-lg z-10 mt-1"
-                          style={{ background: "linear-gradient(135deg, #4f46e5, #7c3aed)" }}
-                        >
-                          {exp.icon}
-                        </div>
-                        <div className={`flex-1 ${t.bg2} rounded-2xl p-5 border ${t.bdr} hover:border-indigo-500 transition-all duration-300 group`}>
-                          <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
-                            <h3 className="font-bold text-sm md:text-base group-hover:text-indigo-400 transition-colors leading-snug">
-                              {exp.title}
-                            </h3>
-                            <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 whitespace-nowrap">
+                        {/* Logo */}
+                        <CompLogo src={exp.logo} name={exp.company} />
+
+                        {/* Body */}
+                        <div style={{flex:1,minWidth:0}}>
+                          <div style={{display:'flex',flexWrap:'wrap',alignItems:'flex-start',justifyContent:'space-between',gap:8,marginBottom:4}}>
+                            <div>
+                              <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:20,letterSpacing:'0.05em',color:CRM,lineHeight:1.1}}>
+                                {exp.role}
+                              </div>
+                              <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.25em',color:Y,marginTop:2}}>
+                                {exp.url
+                                  ? <a href={exp.url} target="_blank" rel="noreferrer" style={{color:Y,textDecoration:'none'}}
+                                      className="h-yolk-text">{exp.company}</a>
+                                  : exp.company}
+                              </div>
+                            </div>
+                            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.15em',
+                                          color:FOG,border:`1px solid ${RIM}`,padding:'4px 10px',whiteSpace:'nowrap',borderRadius:4}}>
                               {exp.period}
                             </span>
                           </div>
-                          <div className="text-indigo-400 text-xs font-semibold mb-2 tracking-wide">{exp.company}</div>
-                          <p className={`${t.muted} text-sm leading-relaxed mb-3`}>{exp.description}</p>
-                          <div className="flex flex-wrap gap-1.5">
-                            {exp.tags.map(tag => <Tag key={tag} label={tag} />)}
+
+                          <p style={{color:FOG,fontSize:13,lineHeight:1.7,margin:'10px 0 12px'}}>
+                            {exp.desc}
+                          </p>
+
+                          <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:12}}>
+                            {exp.tags.map(t => (
+                              <span key={t} style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,
+                                                    padding:'3px 8px',border:`1px solid ${RIM}`,color:FOG,borderRadius:3}}>
+                                {t}
+                              </span>
+                            ))}
                           </div>
+
+                          {exp.links.length > 0 && (
+                            <div style={{borderTop:`1px solid ${RIM}`,paddingTop:12,display:'flex',flexWrap:'wrap',gap:8}}>
+                              {exp.links.map(lk => (
+                                <a key={lk.label} href={lk.href} target="_blank" rel="noreferrer" className="plink">
+                                  ↗ {lk.label}
+                                </a>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
-                    </AnimatedSection>
-                  ))}
-                </div>
+                    </div>
+                  </FadeUp>
+                ))}
               </div>
 
               {/* Education */}
-              <AnimatedSection delay={100}>
-                <div className={`mt-12 ${t.bg2} rounded-2xl p-6 border ${t.bdr}`}>
-                  <h3 className="font-bold text-base mb-4">🎓 Education</h3>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {EDUCATION.map(({ school, course, year }) => (
-                      <div key={school} className={`p-3 rounded-xl ${t.bg3} border ${t.bdr}`}>
-                        <div className="font-semibold text-sm">{school}</div>
-                        <div className={`text-xs ${t.muted} mt-0.5`}>{course}</div>
-                        <div className="text-xs text-indigo-400 mt-1">{year}</div>
+              <FadeUp delay={120}>
+                <div style={{marginTop:8,background:CRD,border:`1px solid ${RIM}`,padding:24,borderRadius:6}}>
+                  <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:13,letterSpacing:'0.2em',color:Y,marginBottom:16,fontWeight:600}}>
+                    ▸ EDUCATION
+                  </div>
+                  <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))',gap:8}}>
+                    {EDU.map(({school,course,year}) => (
+                      <div key={school} style={{border:`1px solid ${RIM}`,padding:14,borderRadius:4}}>
+                        <div style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.05em',fontSize:16,color:CRM}}>{school}</div>
+                        <div style={{fontSize:11,color:FOG,marginTop:3,lineHeight:1.4}}>{course}</div>
+                        <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:Y,marginTop:6}}>{year}</div>
                       </div>
                     ))}
                   </div>
                 </div>
-              </AnimatedSection>
+              </FadeUp>
+
             </div>
           </section>
 
-          {/* ── PROJECTS ────────────────────────────────────────── */}
-          <section id="projects" className={`py-24 ${t.bg3}`}>
-            <div className="max-w-6xl mx-auto px-6">
-              <AnimatedSection>
-                <div className="text-center mb-14">
-                  <h2 className="text-4xl font-bold mb-3">Past Projects</h2>
-                  <p className={t.muted}>Personal &amp; professional builds</p>
-                </div>
-              </AnimatedSection>
+          {/* ░░ PROJECTS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section id="projects" style={{padding:'100px 0',borderBottom:`1px solid ${RIM}`}}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'0 24px'}}>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                {PROJECTS.map((project, i) => (
-                  <AnimatedSection key={i}>
-                    <div className={`${t.bg2} rounded-2xl overflow-hidden border ${t.bdr} hover:border-indigo-500 transition-all duration-300 group flex flex-col`}>
-                      <div className={`h-52 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative overflow-hidden`}>
-                        <span className="text-8xl group-hover:scale-110 transition-transform duration-500">{project.emoji}</span>
-                        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.4), transparent)" }} />
-                        <div className="absolute bottom-3 left-4 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20" style={{ background: "rgba(255,255,255,0.1)", backdropFilter: "blur(8px)" }}>
-                          {project.subtitle}
-                        </div>
-                      </div>
-                      <div className="p-6 flex flex-col flex-1">
-                        <h3 className="text-xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{project.name}</h3>
-                        <p className={`${t.muted} text-sm leading-relaxed mb-4 flex-1`}>{project.description}</p>
-                        <div className="flex flex-wrap gap-2 mb-5">
-                          {project.tags.map(tag => <Tag key={tag} label={tag} />)}
-                        </div>
-                        <div className="flex gap-3">
-                          <a href={project.github} target="_blank" rel="noreferrer"
-                            className="flex-1 text-center py-2.5 rounded-full border border-indigo-500 text-indigo-400 hover:bg-indigo-500/10 text-sm font-semibold transition-all">
-                            GitHub Repo
-                          </a>
-                          <a href={project.website} target="_blank" rel="noreferrer"
-                            className="flex-1 text-center py-2.5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-all">
-                            Live Site
-                          </a>
-                        </div>
+              <FadeUp>
+                <SecLabel n={3} label="Projects" />
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",lineHeight:.9,marginBottom:56}}>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:CRM}}>THINGS I'VE</div>
+                  <div style={{fontSize:'clamp(3rem,7vw,6rem)',color:Y}}>SHIPPED.</div>
+                </div>
+              </FadeUp>
+
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))',gap:8}}>
+
+                {/* Office Connect */}
+                <FadeUp>
+                  <div className="h-yolk-border" style={{background:CRD,border:`1px solid ${RIM}`,
+                        display:'flex',flexDirection:'column',height:'100%',transition:'border-color .2s',overflow:'hidden',borderRadius:6}}>
+                    <div style={{height:200,background:SRF,display:'flex',alignItems:'center',justifyContent:'center',
+                                  position:'relative',borderBottom:`1px solid ${RIM}`}}>
+                      <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'8rem',color:RIM,lineHeight:1}}>01</span>
+                      <div style={{position:'absolute',bottom:12,left:16,fontFamily:"'JetBrains Mono',monospace",
+                                    fontSize:10,letterSpacing:'0.2em',padding:'4px 10px',border:`1px solid ${Y}`,color:Y,background:INK,borderRadius:3}}>
+                        LE WAGON · 2021
                       </div>
                     </div>
-                  </AnimatedSection>
-                ))}
-
-                <AnimatedSection>
-                  <div className={`${t.bg2} rounded-2xl border-2 border-dashed ${t.bdr} flex flex-col items-center justify-center p-12 min-h-[320px] text-center hover:border-indigo-500 transition-all`}>
-                    <div className="text-5xl mb-4">🚧</div>
-                    <h3 className="font-bold text-lg mb-2">More Coming Soon</h3>
-                    <p className={`${t.muted} text-sm`}>Currently working on new projects — check back soon!</p>
+                    <div style={{padding:24,display:'flex',flexDirection:'column',flex:1}}>
+                      <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:28,letterSpacing:'0.05em',color:CRM,marginBottom:8}}>
+                        OFFICE CONNECT
+                      </div>
+                      <p style={{color:FOG,fontSize:13,lineHeight:1.7,marginBottom:16,flex:1}}>
+                        Full-stack platform for booking co-working spaces during COVID-19 office capacity restrictions. Users browse and book spaces; owners list and manage their listings with an integrated map and booking system.
+                      </p>
+                      <div style={{display:'flex',flexWrap:'wrap',gap:6,marginBottom:20}}>
+                        {['Ruby on Rails','JavaScript','PostgreSQL','Mapbox','Heroku'].map(t=>(
+                          <span key={t} style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,padding:'3px 8px',border:`1px solid ${RIM}`,color:FOG,borderRadius:3}}>{t}</span>
+                        ))}
+                      </div>
+                      <div style={{display:'flex',gap:8}}>
+                        <a href="https://github.com/vtmmrs" target="_blank" rel="noreferrer"
+                          className="h-yolk-text h-yolk-border"
+                          style={{flex:1,textAlign:'center',padding:'10px',fontFamily:"'Bebas Neue',sans-serif",
+                                  letterSpacing:'0.2em',fontSize:13,border:`1px solid ${RIM}`,color:FOG,textDecoration:'none',transition:'color .2s,border-color .2s',borderRadius:4}}>
+                          GITHUB
+                        </a>
+                        <a href="https://vtmmrs.github.io" target="_blank" rel="noreferrer"
+                          style={{flex:1,textAlign:'center',padding:'10px',fontFamily:"'Bebas Neue',sans-serif",
+                                  letterSpacing:'0.2em',fontSize:13,background:Y,color:INK,textDecoration:'none',border:`1px solid ${Y}`,borderRadius:4}}>
+                          LIVE SITE
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </AnimatedSection>
+                </FadeUp>
+
+                {/* Coming Soon */}
+                <FadeUp delay={100}>
+                  <div className="h-yolk-border" style={{background:CRD,border:`2px dashed ${RIM}`,
+                        minHeight:320,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',
+                        textAlign:'center',padding:40,transition:'border-color .2s',borderRadius:6}}>
+                    <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'5rem',color:RIM,lineHeight:1}}>+</div>
+                    <div style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.3em',fontSize:18,color:FOG,marginTop:8}}>MORE COMING</div>
+                    <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:RIM,marginTop:6,letterSpacing:'0.2em'}}>CURRENTLY BUILDING</div>
+                  </div>
+                </FadeUp>
+
               </div>
             </div>
           </section>
 
-          {/* ── TESTIMONIALS ────────────────────────────────────── */}
-          <section className="py-24">
-            <div className="max-w-3xl mx-auto px-6">
-              <AnimatedSection>
-                <div className="text-center mb-14">
-                  <h2 className="text-4xl font-bold mb-3">Testimonials</h2>
-                  <p className={t.muted}>What colleagues and managers say</p>
-                </div>
-              </AnimatedSection>
+          {/* ░░ TESTIMONIALS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section style={{padding:'100px 0',borderBottom:`1px solid ${RIM}`}}>
+            <div style={{maxWidth:900,margin:'0 auto',padding:'0 24px'}}>
 
-              {TESTIMONIALS.map((item, i) => (
-                <AnimatedSection key={i}>
-                  <div className={`${t.bg2} rounded-2xl p-8 border ${t.bdr} relative overflow-hidden`}>
-                    <div className="absolute -top-6 -left-2 text-indigo-500/10 font-serif select-none" style={{ fontSize: "9rem", lineHeight: 1 }}>"</div>
-                    <p className={`${t.muted} text-base md:text-lg leading-relaxed italic mb-8 relative z-10`}>
-                      "{item.quote}"
-                    </p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg" style={{ background: "linear-gradient(135deg, #6366f1, #a855f7)" }}>
-                        {item.initials}
-                      </div>
-                      <div>
-                        <div className="font-bold">{item.name}</div>
-                        <div className={`${t.muted} text-sm`}>{item.role}</div>
-                      </div>
-                      <div className="ml-auto text-yellow-400 tracking-tight">★★★★★</div>
+              <FadeUp>
+                <SecLabel n={4} label="What They Say" />
+                <div style={{background:CRD,border:`1px solid ${RIM}`,padding:'40px 40px 36px',borderRadius:6}}>
+                  <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'6rem',color:Y,lineHeight:.8,marginBottom:20,opacity:.6}}>"</div>
+                  <p style={{color:CRM,fontSize:16,lineHeight:1.8,fontStyle:'italic',marginBottom:28}}>
+                    Vivien's incredible eye for design coupled with his technical skillset consistently inspired those who worked with him. Driven, communicative, and calm under pressure — any organisation would be lucky to have Vivien on their team.
+                  </p>
+                  <div style={{borderTop:`1px solid ${RIM}`,paddingTop:24,display:'flex',alignItems:'center',gap:16}}>
+                    <div style={{width:44,height:44,background:Y,display:'flex',alignItems:'center',justifyContent:'center',
+                                  fontFamily:"'Bebas Neue',sans-serif",fontSize:18,color:INK,letterSpacing:'0.05em',flexShrink:0,borderRadius:4}}>
+                      JH
                     </div>
+                    <div>
+                      <div style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.08em',fontSize:18,color:CRM}}>JULIAN HARRINGTON</div>
+                      <div style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.2em',color:Y,marginTop:2}}>PROJECT MANAGER · LE WAGON</div>
+                    </div>
+                    <div style={{marginLeft:'auto',color:Y,fontSize:16,letterSpacing:3}}>★★★★★</div>
                   </div>
-                </AnimatedSection>
-              ))}
+                </div>
+              </FadeUp>
+
             </div>
           </section>
 
-          {/* ── CONTACT ─────────────────────────────────────────── */}
-          <section id="contact" className="py-32 relative overflow-hidden">
-            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, #1e1b4b, #4c1d95, #0f172a)" }} />
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at center, rgba(99,102,241,0.2) 0%, transparent 65%)" }} />
-            <AnimatedSection>
-              <div className="relative z-10 max-w-2xl mx-auto px-6 text-center">
-                <div className="text-5xl mb-6">✉️</div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Let's Work Together</h2>
-                <p className="text-indigo-200 text-lg mb-10 leading-relaxed">
-                  Open to frontend contracts, full-time roles, and freelance projects. Let's build something great.
+          {/* ░░ CONTACT ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <section id="contact" style={{padding:'100px 0'}}>
+            <div style={{maxWidth:1152,margin:'0 auto',padding:'0 24px'}}>
+
+              <FadeUp>
+                <SecLabel n={5} label="Contact" />
+                <div style={{fontFamily:"'Bebas Neue',sans-serif",lineHeight:.88,marginBottom:24}}>
+                  <div style={{fontSize:'clamp(3rem,9vw,8.5rem)',color:CRM}}>LET'S WORK</div>
+                  <div style={{fontSize:'clamp(3rem,9vw,8.5rem)',color:Y}}>TOGETHER.</div>
+                </div>
+                <p style={{color:FOG,fontSize:15,lineHeight:1.7,maxWidth:480,marginBottom:36}}>
+                  Open to frontend contracts, full-time roles, and freelance projects.<br />Always happy to talk shop.
                 </p>
-                <a
-                  href="mailto:vtmmrs@gmail.com"
-                  className="inline-flex items-center gap-2 bg-white text-indigo-900 font-bold px-10 py-4 rounded-full hover:scale-105 transition-all shadow-2xl mb-10 text-lg"
-                >
-                  Say Hello 👋
-                </a>
-                <div className="flex justify-center gap-8 text-indigo-300">
-                  <a href="https://github.com/vtmmrs" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
-                    ⌨️ GitHub
+                <div style={{display:'flex',flexWrap:'wrap',gap:10}}>
+                  <a href="mailto:vtmmrs@gmail.com" className="h-yolk-fill"
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.25em',fontSize:16,
+                            padding:'16px 36px',background:Y,color:INK,border:`2px solid ${Y}`,textDecoration:'none',transition:'background .2s,color .2s',borderRadius:6}}>
+                    SAY HELLO →
                   </a>
-                  <a href="https://www.linkedin.com/in/vivientimmers" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
-                    💼 LinkedIn
+                  <a href="https://github.com/vtmmrs" target="_blank" rel="noreferrer" className="h-yolk-border h-yolk-text"
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.25em',fontSize:16,
+                            padding:'16px 28px',color:CRM,border:`2px solid ${RIM}`,textDecoration:'none',transition:'border-color .2s,color .2s',borderRadius:6}}>
+                    GITHUB
                   </a>
-                  <a href="https://vtmmrs.github.io" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-1.5 text-sm font-medium">
-                    🌐 Portfolio
+                  <a href="https://www.linkedin.com/in/vivientimmers" target="_blank" rel="noreferrer" className="h-yolk-border h-yolk-text"
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.25em',fontSize:16,
+                            padding:'16px 28px',color:CRM,border:`2px solid ${RIM}`,textDecoration:'none',transition:'border-color .2s,color .2s',borderRadius:6}}>
+                    LINKEDIN
+                  </a>
+                  <a href="https://www.instagram.com/viivnmusic" target="_blank" rel="noreferrer" className="h-yolk-border h-yolk-text"
+                    style={{fontFamily:"'Bebas Neue',sans-serif",letterSpacing:'0.25em',fontSize:16,
+                            padding:'16px 28px',color:CRM,border:`2px solid ${RIM}`,textDecoration:'none',transition:'border-color .2s,color .2s',borderRadius:6}}>
+                    IG @VIIVNMUSIC
                   </a>
                 </div>
-              </div>
-            </AnimatedSection>
+              </FadeUp>
+
+            </div>
           </section>
 
-          {/* ── FOOTER ──────────────────────────────────────────── */}
-          <footer className="bg-slate-950 text-slate-500 py-6 text-center text-sm">
-            <p>© {new Date().getFullYear()} Vivien Timmers · Built with React &amp; 💜</p>
+          {/* ░░ FOOTER ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          <footer style={{borderTop:`1px solid ${RIM}`,padding:'24px'}}>
+            <div style={{maxWidth:1152,margin:'0 auto',display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:16}}>
+              <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:'0.2em',color:Y}}>VT</span>
+              <div style={{display:'flex',flexWrap:'wrap',gap:20}}>
+                {[['GitHub','https://github.com/vtmmrs'],['LinkedIn','https://www.linkedin.com/in/vivientimmers'],['IG','https://www.instagram.com/viivnmusic']].map(([l,h])=>(
+                  <a key={l} href={h} target="_blank" rel="noreferrer" className="h-yolk-text"
+                    style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.2em',color:FOG,textDecoration:'none',transition:'color .2s'}}>
+                    {l}
+                  </a>
+                ))}
+              </div>
+              <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,letterSpacing:'0.2em',color:RIM}}>
+                © {new Date().getFullYear()} VIVIEN TIMMERS
+              </span>
+            </div>
           </footer>
 
-          {/* ── SCROLL TO TOP ────────────────────────────────────── */}
-          {scrollY > 400 && (
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="fixed bottom-8 right-8 w-12 h-12 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full flex items-center justify-center text-lg font-bold transition-all hover:scale-110 z-40"
-              style={{ boxShadow: "0 8px 25px rgba(99,102,241,0.4)" }}
-            >
+          {/* ░░ SCROLL TO TOP ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ */}
+          {scrollY > 500 && (
+            <button onClick={() => window.scrollTo({top:0,behavior:'smooth'})}
+              style={{position:'fixed',bottom:28,right:28,width:44,height:44,background:Y,color:INK,
+                      border:'none',cursor:'pointer',fontFamily:"'Bebas Neue',sans-serif",fontSize:18,
+                      letterSpacing:'0.1em',zIndex:40,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:6}}>
               ↑
             </button>
           )}
+
         </div>
       );
     }
 
-    // ─── RENDER ───────────────────────────────────────────────────────────────
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<Portfolio />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<Portfolio />);
   </script>
 </body>
 </html>
